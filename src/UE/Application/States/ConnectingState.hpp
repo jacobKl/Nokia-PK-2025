@@ -11,8 +11,11 @@ public:
     ConnectingState(Context& context);
 
     // IBtsEventsHandler interface
-public:
     void handleAttachAccept() override;
+    void handleAttachReject() override;
+
+    // ITimerEventsHandler interface
+    void handleTimeout() override;
 };
 
 }
