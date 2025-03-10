@@ -9,6 +9,10 @@ class ConnectingState : public BaseState
 {
 public:
     ConnectingState(Context& context);
+
+    // IBtsEventsHandler interface
+public:
+    void handleAttachAccept() override;
 };
 
 }
