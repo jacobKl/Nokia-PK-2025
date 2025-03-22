@@ -24,6 +24,17 @@ jobs:
     - name: make all targets
       run: make all
 
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y clang-tidy cmake ninja-build
+
+    - name: Configure CMake
+      run: |
+        cmake -S ./src -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+
+    - name: Run Clang-Tidy
+      run: clang-tidy -p build $(find . -name '*.cpp' -or -name '*.h')
+
     - name: UT for BtsApplication
       run: make BtsApplicationUT 
 
@@ -35,7 +46,3 @@ jobs:
 
     - name: UT for UeApplication
       run: make UeApplicationUT
-
-    - name: Next Steps
-      run: echo "Add your next steps here"
-
