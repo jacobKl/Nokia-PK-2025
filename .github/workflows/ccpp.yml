@@ -31,6 +31,8 @@ jobs:
     - name: Configure CMake
       run: |
         cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+      with:
+        cache: false
 
     - name: Run Clang-Tidy
       run: clang-tidy -p build $(find . -name '*.cpp' -or -name '*.h')
