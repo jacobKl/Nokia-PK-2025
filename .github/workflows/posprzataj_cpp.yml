@@ -1,0 +1,19 @@
+name: Posprzątaj cpp
+
+on: [push]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install cppcheck
+        run: sudo apt install cppcheck
+
+      - name: Run cppcheck
+        run: |
+          cppcheck --enable=all --inconclusive --std=c++17 -I/usr/include/c++/x.x.x --suppress=missingInclude --suppress=missingIncludeSystem src/UE/Application src/UE/main.cpp 2> >(tee cppcheck.log)
+          [ ! -s cppcheck.log ]
