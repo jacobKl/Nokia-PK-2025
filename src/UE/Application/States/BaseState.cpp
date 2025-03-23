@@ -1,4 +1,5 @@
 #include "BaseState.hpp"
+#include "NotConnectedState.hpp"
 
 namespace ue
 {
@@ -38,6 +39,7 @@ void BaseState::handleAttachReject()
 void BaseState::handleDisconnect() 
 {
     logger.logError("BaseState: handling BTS Disconnect.");
+    context.setState<NotConnectedState>();
 }
 
 }
