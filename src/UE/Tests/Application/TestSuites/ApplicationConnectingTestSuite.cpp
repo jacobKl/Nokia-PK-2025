@@ -10,16 +10,18 @@ namespace ue
         objectUnderTest.handleAttachAccept();
     }
 
-    TEST_F(ApplicationConnectingTestSuite, shallNotConnectOnAttach)
+    TEST_F(ApplicationConnectingTestSuite, shallNotConnectOnAttachReject)
     {
         EXPECT_CALL(timerPortMock, stopTimer());
         EXPECT_CALL(userPortMock, showNotConnected());
+
         objectUnderTest.handleAttachReject();
     }
 
     TEST_F(ApplicationConnectingTestSuite, shallNotConnectOnTimeout)
     {
         EXPECT_CALL(userPortMock, showNotConnected());
+
         objectUnderTest.handleTimeout();
     }
 }
