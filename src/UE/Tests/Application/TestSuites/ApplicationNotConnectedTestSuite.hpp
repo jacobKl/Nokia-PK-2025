@@ -8,8 +8,7 @@ namespace ue
 
 struct ApplicationNotConnectedTestSuite : ApplicationTestSuite
 {
-    public:
-        void sendAttachReqOnSibRecieve();
+    void sendAttachReqOnSibRecieve();
 };
 
 }
