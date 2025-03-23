@@ -13,3 +13,6 @@ _deps
 *.a
 *.o
 *_autogen
+.DS_Store
+src/build
+src/googletest/
