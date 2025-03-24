@@ -1,18 +1,13 @@
 # NOKIA-PK
 
-## Nie pushujemy/zmieniamy mastera w tym repozytorium
+## Repozytorium grupy 14 KS
 
-## Tree
- * BTS, COMMON, UE - components
- * googletest - ut library
- * docs - project documentation
- * lectures - notes and examples from lectures
+### Zespół
+- Mateusz Fudala
+- Marcin Fortuna
+- Hubert Chruścicki
+- Mikołaj Munik
+- Jakub Klimek
 
-## Pytania techniczne
-Używamy **/issues**
-
-## Rejestrowanie pracy
-Po ustaleniu przypisań do grup w **/issues** robimy ticket z informacjami o grupie:  
-- lista osób,  
-- link do boarda,  
-- link do forka z praca grupową.  
+## Tablica z zadaniami
+[Github Projects](https://github.com/users/jacobKl/projects/1)
