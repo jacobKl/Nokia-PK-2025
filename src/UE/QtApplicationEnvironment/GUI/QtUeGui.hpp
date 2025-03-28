@@ -118,7 +118,7 @@ private slots:
     void onAcceptClicked();
     void onRejectClicked();
     void onHomeClicked();
-    void onItemSelected();
+    void onItemSelected(const QModelIndex& modelIndex);
     void onTextEntered();
     void setConnectedStateSlot(QString text, bool connected);
     void setNewMessageSlot(bool);

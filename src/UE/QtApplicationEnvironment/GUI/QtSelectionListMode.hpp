@@ -28,7 +28,7 @@ private:
     QListWidget listWidget;
 
 signals:
-    void itemDoubleClicked();
+    void itemDoubleClicked(const QModelIndex& modelIndex);
     void addSelectionListItemSignal(QString, QString);
     void clearSelectionListSignal();
 private slots:

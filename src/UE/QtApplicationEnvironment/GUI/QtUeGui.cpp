@@ -68,7 +68,7 @@ void QtUeGui::initInternalSignals()
     QObject::connect(&rejectButton,SIGNAL(clicked()),this, SLOT(onRejectClicked()));
     QObject::connect(&homeButton,SIGNAL(clicked()),this,SLOT(onHomeClicked()));
 
-    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked()),this,SLOT(onItemSelected()));
+    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked(QModelIndex)),this,SLOT(onItemSelected(QModelIndex)));
     QObject::connect(&callMode,SIGNAL(textEntered()),this,SLOT(onTextEntered()));
 
     QObject::connect(this,SIGNAL(setConnectedStateSignal(QString, bool)),this,SLOT(setConnectedStateSlot(QString, bool)));
@@ -175,9 +175,15 @@ void QtUeGui::onHomeClicked()
     }
 }
 
-void QtUeGui::onItemSelected()
+void QtUeGui::onItemSelected(const QModelIndex& modelIndex)
 {
-    onAcceptClicked();
+    if(modelIndex.row() == 0){
+        setSmsComposeMode();
+    }else if (modelIndex.row() == 1){
+        std::cout << "Handler do odebranych wyswietlenia sms" << std::endl;
+    }
+    std::cout << modelIndex.row() << std::endl;
+    //    onAcceptClicked();
 }
 
 void QtUeGui::onTextEntered()
