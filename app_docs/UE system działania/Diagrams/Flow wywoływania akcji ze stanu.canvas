@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"1b6031104c2300a2","type":"text","text":"Przykładowe wysłanie SMS\n\nWszystkie inne akcje będą działać w podobny sposób","x":-180,"y":-460,"width":280,"height":120},
+		{"id":"1d05bd4a22c7c225","type":"text","text":"W klasie SendingSmsState\n```cpp\ncontext.bts.sendSms(Message)\n```\n","x":-720,"y":-221,"width":360,"height":140},
+		{"id":"f05119832f252537","type":"text","text":"W klasie BtsPort\n```cpp\ntransport.sendMessage(Message)\n```\n","x":-260,"y":-207,"width":360,"height":112},
+		{"id":"25b06f80cff88e3f","type":"text","text":"Klasa transport obsługuje żądanie. Następnie będzie jakiś handler obsługujący odebranie SMS","x":240,"y":-215,"width":250,"height":120}
+	],
+	"edges":[
+		{"id":"b18848b6aad6174a","fromNode":"1d05bd4a22c7c225","fromSide":"right","toNode":"f05119832f252537","toSide":"left"},
+		{"id":"5389e92589f03bae","fromNode":"f05119832f252537","fromSide":"right","toNode":"25b06f80cff88e3f","toSide":"left"}
+	]
+}

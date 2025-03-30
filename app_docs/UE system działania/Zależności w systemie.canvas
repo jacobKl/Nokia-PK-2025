@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"29695724132236ca","type":"file","file":"Studia/Sem 6/PZST/UE system działania/UE Entrypoint.md","x":-300,"y":-800,"width":400,"height":160},
+		{"id":"ce99dcb84376ab95","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/Application.md","x":-300,"y":-460,"width":400,"height":400},
+		{"id":"a5f3d6a6fc7efcf9","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/Context.md","x":-300,"y":200,"width":400,"height":400},
+		{"id":"83880e9856c5e092","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/Logger.md","x":-610,"y":860,"width":400,"height":400},
+		{"id":"4a8b860ebb73058d","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/TimerPort.md","x":100,"y":860,"width":400,"height":400},
+		{"id":"4252bb27ae5df0ba","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/UserPort.md","x":760,"y":860,"width":400,"height":400},
+		{"id":"e94d6d958e60066b","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/Transporter.md","x":-1320,"y":1420,"width":400,"height":400},
+		{"id":"b1368b598025aa4b","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/BtsPort.md","x":-1320,"y":860,"width":400,"height":400},
+		{"id":"a624f842fba8b07a","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/State oraz BaseState.md","x":-300,"y":1920,"width":400,"height":400},
+		{"id":"cfaa3f9bdd84e504","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Diagrams/Flow dodawania nowego handlera.canvas","x":-300,"y":2480,"width":400,"height":400},
+		{"id":"c10928b30d40eb7b","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Diagrams/Flow wywoływania akcji ze stanu.canvas","x":-1940,"y":860,"width":400,"height":400},
+		{"id":"06572e3fe0f49f9e","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Opis klas/QtUeGui.md","x":760,"y":1420,"width":400,"height":400},
+		{"id":"a94e858704d71f3a","type":"file","file":"Studia/Sem 6/PZST/UE system działania/Diagrams/Flow wywołania akcji dla GUI.canvas","x":1440,"y":860,"width":400,"height":400},
+		{"id":"9d15a7609ad1b36d","x":-800,"y":-800,"width":400,"height":160,"type":"file","file":"Studia/Sem 6/PZST/UE system działania/TODO.md"}
+	],
+	"edges":[
+		{"id":"7b8805b67402da18","fromNode":"29695724132236ca","fromSide":"bottom","toNode":"ce99dcb84376ab95","toSide":"top"},
+		{"id":"3b9dcae3e0dcee77","fromNode":"ce99dcb84376ab95","fromSide":"bottom","toNode":"a5f3d6a6fc7efcf9","toSide":"top"},
+		{"id":"c8b648aca8e28e93","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"a624f842fba8b07a","toSide":"top"},
+		{"id":"5781a28979b99ff2","fromNode":"a624f842fba8b07a","fromSide":"bottom","toNode":"cfaa3f9bdd84e504","toSide":"top"},
+		{"id":"75f66fe9c42df53c","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"b1368b598025aa4b","toSide":"top"},
+		{"id":"09affbbc071039d2","fromNode":"b1368b598025aa4b","fromSide":"bottom","toNode":"e94d6d958e60066b","toSide":"top"},
+		{"id":"87cbf8baa94ba11b","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"83880e9856c5e092","toSide":"top"},
+		{"id":"a789643e2936205f","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"4a8b860ebb73058d","toSide":"top"},
+		{"id":"cd00040e07ccc36f","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"4252bb27ae5df0ba","toSide":"top"},
+		{"id":"7c3d98faa80322de","fromNode":"b1368b598025aa4b","fromSide":"left","toNode":"c10928b30d40eb7b","toSide":"right"},
+		{"id":"90eef297b019c22a","fromNode":"4252bb27ae5df0ba","fromSide":"bottom","toNode":"06572e3fe0f49f9e","toSide":"top"},
+		{"id":"56460958aaf57770","fromNode":"4252bb27ae5df0ba","fromSide":"right","toNode":"a94e858704d71f3a","toSide":"left"}
+	]
+}

@@ -1,0 +1,1 @@
+Logger jest klasą pomocniczą która ma nam ułatwiać debugowanie kodu poprzez wyświetlanie jakiś wiadomości do konsoli, gdzie uruchomiony jest UE. W wielkim skrócie, jest to gloryfikowany std::cout. Logger ma 3 poziomy abstrakcji, ILogger, Logger oraz PrefixedLogger. W większości przypadków w aplikacji UE używany jest PrefixedLogger w klasach. 

@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"53b8aaafdf4ea1b6","type":"text","text":"W klasie SendingSmsState\n```cpp\ncontext.user.composeSms()\n```\n","x":-640,"y":-141,"width":360,"height":140},
+		{"id":"3e4f86617e916318","type":"text","text":"W klasie BtsPort\n```cpp\ngui.setSmsComposeMode()\n```\n","x":-180,"y":-127,"width":360,"height":112},
+		{"id":"ae636a70d3d8d29b","type":"text","text":"Klasa QtUeGui podmienia komponenty, które powinny zostać następnie wyświetlone.","x":320,"y":-135,"width":250,"height":120},
+		{"id":"b04f605f81e50c76","type":"text","text":"Przykładowe wyświetlenie widoku pisania SMS\n\nWszystkie inne akcje będą działać w podobny sposób","x":-140,"y":-420,"width":280,"height":160}
+	],
+	"edges":[
+		{"id":"ae8cd2c30e475857","fromNode":"53b8aaafdf4ea1b6","fromSide":"right","toNode":"3e4f86617e916318","toSide":"left"},
+		{"id":"44e71e3bd504936d","fromNode":"3e4f86617e916318","fromSide":"right","toNode":"ae636a70d3d8d29b","toSide":"left"}
+	]
+}
