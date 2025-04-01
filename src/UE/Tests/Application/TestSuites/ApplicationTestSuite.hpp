@@ -28,6 +28,8 @@ protected:
     StrictMock<IUserPortMock> userPortMock;
     StrictMock<ITimerPortMock> timerPortMock;
 
+    Expectation expectNotConnected = EXPECT_CALL(userPortMock, showNotConnected());
+
     Application objectUnderTest{PHONE_NUMBER, loggerMock, btsPortMock, userPortMock, timerPortMock};
 };
 
