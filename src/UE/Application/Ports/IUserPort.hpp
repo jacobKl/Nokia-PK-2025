@@ -1,5 +1,6 @@
 #pragma once
 
+#include <IUeGui.hpp>
 
 namespace ue
 {
@@ -18,6 +19,11 @@ public:
     virtual void showNotConnected() = 0;
     virtual void showConnecting() = 0;
     virtual void showConnected() = 0;
+
+    virtual void acceptCallback(IUeGui::Callback acceptCallback) = 0;
+    virtual void rejectCallback(IUeGui::Callback rejectCallback) = 0;
+    virtual int getScreenId() = 0;
+    virtual IUeGui::ISmsComposeMode &activateComposeMode() = 0;
 };
 
 }

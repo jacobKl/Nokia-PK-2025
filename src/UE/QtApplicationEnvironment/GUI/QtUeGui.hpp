@@ -42,6 +42,7 @@ public:
 
     void setCloseGuard(CloseGuard closeGuard) override;
     void setAcceptCallback(Callback) override;
+    void setDoubleClickCallback(Callback) override;
     void setRejectCallback(Callback) override;
 
     void setTitle(const std::string& title) override;
@@ -72,6 +73,7 @@ private:
 
     // callbacks
     IUeGui::Callback acceptCallback;
+    IUeGui::Callback doubleClickCallback;
     IUeGui::Callback rejectCallback;
     IUeGui::Callback homeCallback;
 
@@ -116,6 +118,7 @@ private:
 
 private slots:
     void onAcceptClicked();
+    void onDoubleClicked();
     void onRejectClicked();
     void onHomeClicked();
     void onItemSelected();

@@ -167,6 +167,13 @@ void QtUeGui::onRejectClicked()
     }
 }
 
+    void QtUeGui::onDoubleClicked() {
+        if(doubleClickCallback)
+        {
+            doubleClickCallback();
+        }
+    }
+
 void QtUeGui::onHomeClicked()
 {
     if(homeCallback)
@@ -177,7 +184,7 @@ void QtUeGui::onHomeClicked()
 
 void QtUeGui::onItemSelected()
 {
-    onAcceptClicked();
+    onDoubleClicked();
 }
 
 void QtUeGui::onTextEntered()
@@ -193,6 +200,10 @@ void QtUeGui::setCloseGuard(CloseGuard closeGuard)
 void QtUeGui::setAcceptCallback(Callback callback)
 {
     acceptCallback = callback;
+}
+
+void QtUeGui::setDoubleClickCallback(Callback callback) {
+    doubleClickCallback = callback;
 }
 
 void QtUeGui::setRejectCallback(Callback callback)
