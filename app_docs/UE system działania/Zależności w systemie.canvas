@@ -1,5 +1,7 @@
 {
 	"nodes":[
+		{"id":"080226417a311ae9","x":-2144,"y":-960,"width":4144,"height":4000,"color":"5","type":"group","label":"System flow"},
+		{"id":"f712b297899d078e","x":2400,"y":-960,"width":1320,"height":700,"color":"6","type":"group","label":"Features"},
 		{"id":"29695724132236ca","type":"file","file":"UE system działania/UE Entrypoint.md","x":-300,"y":-800,"width":400,"height":160},
 		{"id":"ce99dcb84376ab95","type":"file","file":"UE system działania/Opis klas/Application.md","x":-300,"y":-460,"width":400,"height":400},
 		{"id":"a5f3d6a6fc7efcf9","type":"file","file":"UE system działania/Opis klas/Context.md","x":-300,"y":200,"width":400,"height":400},
@@ -13,7 +15,10 @@
 		{"id":"c10928b30d40eb7b","type":"file","file":"UE system działania/Diagrams/Flow wywoływania akcji ze stanu.canvas","x":-1940,"y":860,"width":400,"height":400},
 		{"id":"06572e3fe0f49f9e","type":"file","file":"UE system działania/Opis klas/QtUeGui.md","x":760,"y":1420,"width":400,"height":400},
 		{"id":"a94e858704d71f3a","type":"file","file":"UE system działania/Diagrams/Flow wywołania akcji dla GUI.canvas","x":1440,"y":860,"width":400,"height":400},
-		{"id":"9d15a7609ad1b36d","x":-800,"y":-800,"width":400,"height":160,"type":"file","file":"UE system działania/TODO.md"}
+		{"id":"aa4ab4b2d392f347","type":"file","file":"UE system działania/Zachowanie systemu/Rebuild projektu po dodaniu nowych plików.md","x":500,"y":2200,"width":400,"height":400},
+		{"id":"9d15a7609ad1b36d","type":"file","file":"UE system działania/TODO.md","x":-810,"y":-800,"width":400,"height":160},
+		{"id":"71d98772c6257b23","x":2480,"y":-820,"width":400,"height":400,"type":"file","file":"UE system działania/Feat/Sending SMS/Send sms flow.canvas"},
+		{"id":"1a7a51e0074216d6","x":2555,"y":-920,"width":250,"height":60,"type":"text","text":"Sending SMS"}
 	],
 	"edges":[
 		{"id":"7b8805b67402da18","fromNode":"29695724132236ca","fromSide":"bottom","toNode":"ce99dcb84376ab95","toSide":"top"},
@@ -27,6 +32,8 @@
 		{"id":"cd00040e07ccc36f","fromNode":"a5f3d6a6fc7efcf9","fromSide":"bottom","toNode":"4252bb27ae5df0ba","toSide":"top"},
 		{"id":"7c3d98faa80322de","fromNode":"b1368b598025aa4b","fromSide":"left","toNode":"c10928b30d40eb7b","toSide":"right"},
 		{"id":"90eef297b019c22a","fromNode":"4252bb27ae5df0ba","fromSide":"bottom","toNode":"06572e3fe0f49f9e","toSide":"top"},
-		{"id":"56460958aaf57770","fromNode":"4252bb27ae5df0ba","fromSide":"right","toNode":"a94e858704d71f3a","toSide":"left"}
+		{"id":"56460958aaf57770","fromNode":"4252bb27ae5df0ba","fromSide":"right","toNode":"a94e858704d71f3a","toSide":"left"},
+		{"id":"75d8bc9d66f3f169","fromNode":"a624f842fba8b07a","fromSide":"right","toNode":"aa4ab4b2d392f347","toSide":"left"},
+		{"id":"3ead4276bea9f20d","fromNode":"1a7a51e0074216d6","fromSide":"bottom","toNode":"71d98772c6257b23","toSide":"top","toEnd":"none"}
 	]
 }

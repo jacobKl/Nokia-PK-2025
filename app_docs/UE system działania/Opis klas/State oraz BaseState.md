@@ -6,3 +6,5 @@ Ponieważ stany posiadają różne akcje, które mogą wykonać BaseState musi p
 
 Flow dodawania nowego handlera wygląda jak w wykresie który jest dołączony poniżej:
 [[Flow dodawania nowego handlera.canvas|Flow dodawania nowego handlera]]
+
+Co ważne, aktualnie najlepiej będzie dziedziczyć po ConnectedState. Wynika to z tego że będzie on miał dużo funkcjonalności które chcemy mieć też w innych stanach (np. pisanie SMS itp.).
