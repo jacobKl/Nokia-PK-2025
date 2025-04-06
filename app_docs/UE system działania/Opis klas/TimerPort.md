@@ -1,0 +1,1 @@
+Klasa do zarządzania zegarem aplikacji. Na razie działanie jest nieznane na moment pisania dokumentacji.

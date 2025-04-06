@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"359c1a3410bdee24","type":"text","text":"W jednym z plików dodaj metodę wirtualną:\n- IUserEventsHandler\n- IBtsEventsHandler\n- ITimerEventsHandler (tutaj raczej nie będzie potrzeby dodawania niczego nowego)","x":-1020,"y":-600,"width":250,"height":266},
+		{"id":"bfd5dcf73591b935","type":"text","text":"W BaseState.cpp dodaj implementację tej metody, według wzoru jak jest w pliku","x":-280,"y":-528,"width":250,"height":124},
+		{"id":"0f9aab3ac62c93e3","type":"text","text":"W innym stanie jak chcesz zmienić zachowanie danego handlera nadpisz tą metodę i stwórz własną implementację","x":-280,"y":-240,"width":250,"height":162},
+		{"id":"3413f6469313b49f","x":-640,"y":-900,"width":250,"height":262,"type":"text","text":"W klasie Application nadpisujemy metodę która została dodana do EventsHandlerów według schematu w pliku Application (chyba że logika wymaga inaczej patrz handleDisconnect jako przykład)"},
+		{"id":"ff243f528a61eedd","type":"text","text":"W BaseState.hpp dodaj wpis z słówkiem override na końcu (np. jak dodałeś handleSmsReceive() to będzie trzeba dodać\nvoid handleSmsReceive() override)","x":-640,"y":-515,"width":250,"height":223}
+	],
+	"edges":[
+		{"id":"b0adb8c26c435a1f","fromNode":"ff243f528a61eedd","fromSide":"right","toNode":"bfd5dcf73591b935","toSide":"left"},
+		{"id":"d57435900a9c558c","fromNode":"bfd5dcf73591b935","fromSide":"bottom","toNode":"0f9aab3ac62c93e3","toSide":"top"},
+		{"id":"a93043778aee7423","fromNode":"3413f6469313b49f","fromSide":"bottom","toNode":"ff243f528a61eedd","toSide":"top","fromEnd":"arrow","label":"Kolejność dowolna ale mają być oba zrobione"},
+		{"id":"8265fd2ade047f40","fromNode":"359c1a3410bdee24","fromSide":"top","toNode":"3413f6469313b49f","toSide":"left"}
+	]
+}

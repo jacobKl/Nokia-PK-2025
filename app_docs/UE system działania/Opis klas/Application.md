@@ -1,0 +1,5 @@
+Główna klasa zarządzająca stanem i tym co się dzieje w aplikacji. Pomimo przekazywania referencji do każdej klasy tworzonej w main.cpp, obsługuje zdarzenia które dzieją się w aplikacji i wywołuje odpowiednie metody stanu z contextu. 
+
+Jej zadaniem na koniec dnia jest w odpowiedniej metodzie wywołanie akcji stanu w zależności od zdarzeniu w systemie. ( context.state->{stateAction}() ). Na 90% metody te są wykorzystywane przez klasy UserPort oraz BtsPort (chociaż jest to strzał). Wynika to z budowy Portów, które są opisane w osobnych plikach tekstowych.
+
+Klasa Application dziedziczy po klasie interfejsowej IEventHandler, ta z kolei dziedziczy po każdym handlerze tj. IBtsEventsHandler, IUserEventsHandler oraz ITimerEventsHandler. Ze względu na to co jest opisane wyżej, należy założyć że po dodaniu nowej metody w któreś z tych 3 klas należy doimplementować tą metodę w klasie Application tak jak jest w schemacie (przez schemat mam na myśli jak jest w pliku Applcation.cpp)

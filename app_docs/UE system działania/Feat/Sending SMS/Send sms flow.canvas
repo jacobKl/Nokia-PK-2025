@@ -1,0 +1,24 @@
+{
+	"nodes":[
+		{"id":"72b93b37357fbab5","type":"text","text":"Pojedyncze wciśnięcie przycisku na liście ustawia typ ekranu","x":-560,"y":-640,"width":250,"height":100},
+		{"id":"f34cd6e147cc0cbc","type":"file","file":"UE system działania/Feat/Sending SMS/Opisy/Sending SMS.md","x":-635,"y":-1240,"width":400,"height":400},
+		{"id":"3eb7ec7e6c559645","type":"file","file":"UE system działania/Feat/Sending SMS/Opisy/Typy ekranów.md","x":-1320,"y":-990,"width":400,"height":400},
+		{"id":"7d1043e867770841","type":"text","text":"Podwójne wciśnięcie elementu listy zmienia ekran oraz stan aplikacji","x":-560,"y":-60,"width":250,"height":112},
+		{"id":"dd808d727eece6ad","type":"file","file":"UE system działania/Feat/Sending SMS/Opisy/UserPort - selectScreen.md","x":140,"y":-500,"width":400,"height":400},
+		{"id":"a75dab692761ea1b","type":"text","text":"Wciśnięcie czerwonej słuchawki lub przycisku home, wraca do widoku listy","x":-720,"y":180,"width":250,"height":116},
+		{"id":"c37fb96704d03c49","type":"text","text":"Wciśnięcie zielonej słuchawki, wyśle wiadomość do danego telefonu","x":-380,"y":180,"width":250,"height":116},
+		{"id":"9314b94116148e93","x":-380,"y":420,"width":250,"height":110,"type":"text","text":"BtsPort obsługuje wysłanie wiadomości do danego telefonu"},
+		{"id":"f78f92a641a57ab4","x":-380,"y":640,"width":250,"height":146,"type":"text","text":"Bts również podejmuje próbę wysłania wiadomości na dany telefon (to że przyszedł SMS)"}
+	],
+	"edges":[
+		{"id":"efdb46775801e7af","fromNode":"f34cd6e147cc0cbc","fromSide":"bottom","toNode":"72b93b37357fbab5","toSide":"top"},
+		{"id":"ee7f915fd4a25057","fromNode":"72b93b37357fbab5","fromSide":"left","toNode":"3eb7ec7e6c559645","toSide":"right"},
+		{"id":"7b7dad3df04687d6","fromNode":"72b93b37357fbab5","fromSide":"right","toNode":"dd808d727eece6ad","toSide":"top"},
+		{"id":"49ef357e44645f95","fromNode":"72b93b37357fbab5","fromSide":"bottom","toNode":"7d1043e867770841","toSide":"top"},
+		{"id":"00c8469c445fd5c0","fromNode":"7d1043e867770841","fromSide":"right","toNode":"dd808d727eece6ad","toSide":"bottom"},
+		{"id":"d27846be52e6fc01","fromNode":"7d1043e867770841","fromSide":"bottom","toNode":"a75dab692761ea1b","toSide":"top"},
+		{"id":"fbb576f376f9ae34","fromNode":"7d1043e867770841","fromSide":"bottom","toNode":"c37fb96704d03c49","toSide":"top"},
+		{"id":"5b3f1130bb6ffcff","fromNode":"c37fb96704d03c49","fromSide":"bottom","toNode":"9314b94116148e93","toSide":"top"},
+		{"id":"49c4309fbf35fef2","fromNode":"9314b94116148e93","fromSide":"bottom","toNode":"f78f92a641a57ab4","toSide":"top"}
+	]
+}

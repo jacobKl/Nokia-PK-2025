@@ -1,0 +1,4 @@
+Aplikacja UE rozpoczyna działanie w pliku main.cpp. 
+W nim wywoływane jest funkcja createApplicationEnvoirement która pod spodem tworzy środowisko pracy. Jej implementacja jest ukryta przez bibliotekę dynamiczną (która cholera wie gdzie jest). Jest plik ApplicationEnvironment.cpp ale pewnie służy do tego żeby system budowania nie czepiał się że nie ma takiego pliku/klasy. Z enva tworzy się logger, klasa pośrednicząca jako komunikator między BTS a US (transporter), system GUI, oraz numer telefonu. Żeby nie było za prosto te klasy też nie wszystkie mają pokazaną implementację (np. Transporter.cpp jest pusty w folderze COMMON).
+
+Następnie tworzone są klasy, BtsPort, UserPort, TimerPort oraz Application. 

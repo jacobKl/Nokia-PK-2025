@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"3310faf67fc995c7","x":-420,"y":-380,"width":250,"height":180,"type":"text","text":"UserPort tworzy callback na pojedyncze wciśnięcie elementu listy i ustawia sobie stan na jaki powinien zmienić się ekran"},
+		{"id":"0dee91d32f770b7e","x":-37,"y":-354,"width":250,"height":154,"type":"text","text":"ConnectedState tworzy callback na podwójne wciśnięcie elementu listy przez UserPort bo on ma dostęp do listy"},
+		{"id":"0da054661d1c2ff6","x":-28,"y":-21,"width":250,"height":161,"type":"text","text":"ConnectedState ustawia że na podwójnym wciśnięciu elementu listy zmieni się ekran poprzez zmianę stanu"}
+	],
+	"edges":[
+		{"id":"ecfdc63c46ec616e","fromNode":"3310faf67fc995c7","fromSide":"right","toNode":"0dee91d32f770b7e","toSide":"left"},
+		{"id":"3655d54a5b17e94d","fromNode":"0dee91d32f770b7e","fromSide":"bottom","toNode":"0da054661d1c2ff6","toSide":"top"}
+	]
+}
