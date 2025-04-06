@@ -68,7 +68,8 @@ void QtUeGui::initInternalSignals()
     QObject::connect(&rejectButton,SIGNAL(clicked()),this, SLOT(onRejectClicked()));
     QObject::connect(&homeButton,SIGNAL(clicked()),this,SLOT(onHomeClicked()));
 
-    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked()),this,SLOT(onItemSelected()));
+    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked()),this,SLOT(onDoubleClicked()));
+    QObject::connect(&listViewMode,SIGNAL(clicked()),this,SLOT(onItemSelected()));
     QObject::connect(&callMode,SIGNAL(textEntered()),this,SLOT(onTextEntered()));
 
     QObject::connect(this,SIGNAL(setConnectedStateSignal(QString, bool)),this,SLOT(setConnectedStateSlot(QString, bool)));
@@ -184,7 +185,7 @@ void QtUeGui::onHomeClicked()
 
 void QtUeGui::onItemSelected()
 {
-    onDoubleClicked();
+    onAcceptClicked();
 }
 
 void QtUeGui::onTextEntered()
@@ -209,6 +210,11 @@ void QtUeGui::setDoubleClickCallback(Callback callback) {
 void QtUeGui::setRejectCallback(Callback callback)
 {
     rejectCallback = callback;
+}
+
+void QtUeGui::setHomeCallback(Callback callback)
+{
+    homeCallback = callback;
 }
 
 void QtUeGui::setTitle(const std::string& title)

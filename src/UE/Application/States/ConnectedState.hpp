@@ -9,7 +9,7 @@ class ConnectedState : public BaseState
 {
 public:
     ConnectedState(Context& context);
-    virtual void showSmsButton();
+    virtual void changeScreen();
 };
 
 }

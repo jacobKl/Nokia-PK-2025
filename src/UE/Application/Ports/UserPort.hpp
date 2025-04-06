@@ -24,6 +24,8 @@ public:
 
     virtual void acceptCallback(IUeGui::Callback acceptCallback) override;
     virtual void rejectCallback(IUeGui::Callback rejectCallback) override;
+    virtual void doubleClickCallback(IUeGui::Callback doubleClickCallback) override;
+    virtual void homeCallback(IUeGui::Callback homeCallback) override;
     virtual int getScreenId() override;
     virtual IUeGui::ISmsComposeMode &activateComposeMode() override;
 
@@ -37,7 +39,7 @@ private:
     int screenToShow = NO_SCREEN;
 
 
-    void showScreen(IUeGui::IListViewMode& menu);
+    void selectScreen(IUeGui::IListViewMode& menu);
 };
 
 }

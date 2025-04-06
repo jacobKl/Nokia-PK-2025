@@ -7,17 +7,20 @@ namespace ue
 ConnectedState::ConnectedState(Context &context)
     : BaseState(context, "ConnectedState")
 {
-    context.user.acceptCallback([this] { showSmsButton();});
+    context.user.doubleClickCallback([this] { changeScreen();});
     context.user.showConnected();
 }
 
-    void ConnectedState::showSmsButton() {
-    logger.logInfo("Wywołuje sie");
+    void ConnectedState::changeScreen() {
         switch (context.user.getScreenId()) {
             case COMPOSE_SMS_SCREEN:
                 context.setState<ComposeSmsState>();
                 break;
             case VIEW_SMS_SCREEN:
+                logger.logInfo("Screen not implemented.");
+                break;
+            case NO_SCREEN:
+                logger.logInfo("No screen selected");
                 break;
         }
 }

@@ -39,7 +39,7 @@ void UserPort::showConnected()
     menu.addSelectionListItem("Compose SMS", "");
     menu.addSelectionListItem("View SMS", "");
 
-//    gui.setAcceptCallback([this, &menu]{ showScreen(menu);});
+    gui.setAcceptCallback([this, &menu]{ selectScreen(menu);});
 }
 
 void UserPort::acceptCallback(IUeGui::Callback acceptCallback) {
@@ -50,9 +50,22 @@ void UserPort::rejectCallback(IUeGui::Callback rejectCallback) {
     gui.setRejectCallback(rejectCallback);
 }
 
-void UserPort::showScreen(IUeGui::IListViewMode& menu) {
+void UserPort::doubleClickCallback(IUeGui::Callback doubleClickCallback) {
+    gui.setDoubleClickCallback(doubleClickCallback);
+}
+
+void UserPort::homeCallback(IUeGui::Callback homeCallback) {
+    gui.setHomeCallback(homeCallback);
+}
+
+void UserPort::selectScreen(IUeGui::IListViewMode& menu) {
     IUeGui::IListViewMode::OptionalSelection pair = menu.getCurrentItemIndex();
-    logger.logInfo(pair.second);
+    if(pair.first){
+        screenToShow = pair.second;
+    }
+    else{
+        screenToShow = NO_SCREEN;
+    }
 }
 
 int UserPort::getScreenId() {
@@ -63,5 +76,7 @@ IUeGui::ISmsComposeMode &UserPort::activateComposeMode(){
     IUeGui::ISmsComposeMode &mode = gui.setSmsComposeMode();
     return mode;
 }
+
+
 
 }

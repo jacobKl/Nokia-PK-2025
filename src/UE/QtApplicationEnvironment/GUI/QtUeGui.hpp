@@ -44,6 +44,7 @@ public:
     void setAcceptCallback(Callback) override;
     void setDoubleClickCallback(Callback) override;
     void setRejectCallback(Callback) override;
+    void setHomeCallback(Callback) override;
 
     void setTitle(const std::string& title) override;
     void showConnected() override;
