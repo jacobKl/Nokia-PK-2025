@@ -68,7 +68,8 @@ void QtUeGui::initInternalSignals()
     QObject::connect(&rejectButton,SIGNAL(clicked()),this, SLOT(onRejectClicked()));
     QObject::connect(&homeButton,SIGNAL(clicked()),this,SLOT(onHomeClicked()));
 
-    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked()),this,SLOT(onItemSelected()));
+    QObject::connect(&listViewMode,SIGNAL(itemDoubleClicked()),this,SLOT(onDoubleClicked()));
+    QObject::connect(&listViewMode,SIGNAL(clicked()),this,SLOT(onItemSelected()));
     QObject::connect(&callMode,SIGNAL(textEntered()),this,SLOT(onTextEntered()));
 
     QObject::connect(this,SIGNAL(setConnectedStateSignal(QString, bool)),this,SLOT(setConnectedStateSlot(QString, bool)));
@@ -167,6 +168,13 @@ void QtUeGui::onRejectClicked()
     }
 }
 
+    void QtUeGui::onDoubleClicked() {
+        if(doubleClickCallback)
+        {
+            doubleClickCallback();
+        }
+    }
+
 void QtUeGui::onHomeClicked()
 {
     if(homeCallback)
@@ -195,9 +203,18 @@ void QtUeGui::setAcceptCallback(Callback callback)
     acceptCallback = callback;
 }
 
+void QtUeGui::setDoubleClickCallback(Callback callback) {
+    doubleClickCallback = callback;
+}
+
 void QtUeGui::setRejectCallback(Callback callback)
 {
     rejectCallback = callback;
+}
+
+void QtUeGui::setHomeCallback(Callback callback)
+{
+    homeCallback = callback;
 }
 
 void QtUeGui::setTitle(const std::string& title)

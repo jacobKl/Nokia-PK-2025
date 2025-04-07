@@ -62,6 +62,11 @@ void BtsPort::handleMessage(BinaryMessage msg)
     }
 }
 
+void BtsPort::sendSms(common::PhoneNumber sendTo, std::string message) {
+    common::OutgoingMessage outgoingMessage = common::OutgoingMessage(common::MessageId::Sms,phoneNumber,sendTo);
+    outgoingMessage.writeText(message);
+    transport.sendMessage(outgoingMessage.getMessage());
+}
 
 void BtsPort::sendAttachRequest(common::BtsId btsId)
 {

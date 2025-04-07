@@ -53,6 +53,7 @@ void QtSelectionListMode::constructGui()
 void QtSelectionListMode::connectSignals()
 {
     connect(&listWidget, &QListWidget::doubleClicked, [this](const QModelIndex&){ emit itemDoubleClicked();});
+    connect(&listWidget, &QListWidget::itemClicked, [this]{ emit clicked();});
     connect(this,SIGNAL(addSelectionListItemSignal(QString, QString)),this,SLOT(addSelectionListItemSlot(QString, QString)));
     connect(this,SIGNAL(clearSelectionListSignal()),this,SLOT(clearSelectionListSlot()));
 }

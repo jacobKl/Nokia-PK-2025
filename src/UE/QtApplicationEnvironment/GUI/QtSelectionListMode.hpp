@@ -29,6 +29,7 @@ private:
 
 signals:
     void itemDoubleClicked();
+    void clicked();
     void addSelectionListItemSignal(QString, QString);
     void clearSelectionListSignal();
 private slots:
