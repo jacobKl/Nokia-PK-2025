@@ -42,4 +42,10 @@ void BaseState::handleDisconnect()
     context.setState<NotConnectedState>();
 }
 
+void BaseState::handleUnknownRecipient() 
+{
+    logger.logError("BaseState: handling Unknown recipient.");
+    context.setState<NotConnectedState>();
+}
+
 }

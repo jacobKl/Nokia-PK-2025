@@ -46,4 +46,9 @@ void Application::handleDisconnect()
     context.state->handleDisconnect();
 }
 
+void Application::handleUnknownRecipient() 
+{
+    context.state->handleUnknownRecipient();
+}
+
 }

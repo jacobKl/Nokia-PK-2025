@@ -29,6 +29,7 @@ public:
     void handleAttachAccept() override;
     void handleAttachReject() override;
     void handleDisconnect() override;
+    void handleUnknownRecipient() override;
 
 private:
     Context context;

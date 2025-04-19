@@ -1,6 +1,8 @@
-#include "ConnectedState.hpp"
 #include "../Enums/ScreenType.hpp"
+#include "ConnectedState.hpp"
 #include "ComposeSmsState.hpp"
+#include "DialState.hpp"
+
 namespace ue
 {
 
@@ -18,6 +20,9 @@ ConnectedState::ConnectedState(Context &context)
                 break;
             case VIEW_SMS_SCREEN:
                 logger.logInfo("Screen not implemented.");
+                break;
+            case MAKE_CALL_SCREEN:
+                context.setState<DialState>();
                 break;
             case NO_SCREEN:
                 logger.logInfo("No screen selected");

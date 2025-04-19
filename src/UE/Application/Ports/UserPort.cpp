@@ -36,10 +36,24 @@ void UserPort::showConnected()
 {
     IUeGui::IListViewMode& menu = gui.setListViewMode();
     menu.clearSelectionList();
+
     menu.addSelectionListItem("Compose SMS", "");
     menu.addSelectionListItem("View SMS", "");
+    menu.addSelectionListItem("Make a call", "");
 
     gui.setAcceptCallback([this, &menu]{ selectScreen(menu);});
+}
+
+void UserPort::showPeerUserNotAvailable(common::PhoneNumber number) {
+    gui.showPeerUserNotAvailable(number);
+
+    const auto handler = [&] {
+        gui.setListViewMode();
+    };
+
+    gui.setAcceptCallback(handler);
+    gui.setRejectCallback(handler);
+    gui.setHomeCallback(handler);
 }
 
 void UserPort::acceptCallback(IUeGui::Callback acceptCallback) {
@@ -60,10 +74,10 @@ void UserPort::homeCallback(IUeGui::Callback homeCallback) {
 
 void UserPort::selectScreen(IUeGui::IListViewMode& menu) {
     IUeGui::IListViewMode::OptionalSelection pair = menu.getCurrentItemIndex();
-    if(pair.first){
+
+    if (pair.first) {
         screenToShow = pair.second;
-    }
-    else{
+    } else {
         screenToShow = NO_SCREEN;
     }
 }
@@ -74,6 +88,13 @@ int UserPort::getScreenId() {
 
 IUeGui::ISmsComposeMode &UserPort::activateComposeMode(){
     IUeGui::ISmsComposeMode &mode = gui.setSmsComposeMode();
+
+    return mode;
+}
+
+IUeGui::IDialMode &UserPort::activateDialMode() {
+    IUeGui::IDialMode &mode = gui.setDialMode();
+
     return mode;
 }
 

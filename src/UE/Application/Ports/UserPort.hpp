@@ -21,13 +21,16 @@ public:
     void showNotConnected() override;
     void showConnecting() override;
     void showConnected() override;
+    void showPeerUserNotAvailable(common::PhoneNumber number) override;
 
     virtual void acceptCallback(IUeGui::Callback acceptCallback) override;
     virtual void rejectCallback(IUeGui::Callback rejectCallback) override;
     virtual void doubleClickCallback(IUeGui::Callback doubleClickCallback) override;
     virtual void homeCallback(IUeGui::Callback homeCallback) override;
     virtual int getScreenId() override;
+
     virtual IUeGui::ISmsComposeMode &activateComposeMode() override;
+    virtual IUeGui::IDialMode &activateDialMode() override;
 
 
 private:
