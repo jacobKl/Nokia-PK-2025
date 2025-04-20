@@ -16,7 +16,7 @@ public:
     MOCK_METHOD(void, handleAttachAccept, (), (final));
     MOCK_METHOD(void, handleAttachReject, (), (final));
     MOCK_METHOD(void, handleDisconnect, (), (final));
-    MOCK_METHOD(void, handleUnknownRecipient, (), (override));
+    MOCK_METHOD(void, handleCallMessage, (common::MessageId msgId), (override));
 };
 
 class IBtsPortMock : public IBtsPort

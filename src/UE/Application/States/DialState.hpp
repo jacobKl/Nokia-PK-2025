@@ -2,6 +2,8 @@
 
 #include "ConnectedState.hpp"
 #include "UeGui/IDialMode.hpp"
+#include "Messages/IncomingMessage.hpp"
+
 
 namespace ue
 {

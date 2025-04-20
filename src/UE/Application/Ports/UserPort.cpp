@@ -1,6 +1,5 @@
 #include "UserPort.hpp"
 #include "UeGui/IListViewMode.hpp"
-#include "UeGui/IListViewMode.hpp"
 
 namespace ue
 {

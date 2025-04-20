@@ -5,6 +5,7 @@
 #include "IEventsHandler.hpp"
 #include "Context.hpp"
 #include "Messages/IncomingMessage.hpp"
+#include "States/NotConnectedState.hpp"
 
 namespace ue
 {
@@ -31,6 +32,8 @@ public:
     void handleAttachReject() override;
     void handleDisconnect() override;
     void handleCallMessage(common::MessageId msgId) override;
+
+    Context& getContext();
 
 private:
     Context context;

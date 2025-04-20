@@ -1,6 +1,4 @@
 #include "Application.hpp"
-#include "States/NotConnectedState.hpp"
-
 namespace ue
 {
 
@@ -49,6 +47,10 @@ void Application::handleDisconnect()
 void Application::handleCallMessage(common::MessageId msgId) 
 {
     context.state->handleCallMessage(msgId);
+}
+
+Context& Application::getContext() {
+    return context;
 }
 
 }

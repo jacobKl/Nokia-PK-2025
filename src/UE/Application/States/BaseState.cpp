@@ -45,7 +45,6 @@ void BaseState::handleDisconnect()
 void BaseState::handleCallMessage(common::MessageId msgId) 
 {
     logger.logError("BaseState: handling call message.");
-    context.setState<NotConnectedState>();
 }
 
 }
