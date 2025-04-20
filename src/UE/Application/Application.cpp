@@ -46,9 +46,9 @@ void Application::handleDisconnect()
     context.state->handleDisconnect();
 }
 
-void Application::handleUnknownRecipient() 
+void Application::handleCallMessage(common::MessageId msgId) 
 {
-    context.state->handleUnknownRecipient();
+    context.state->handleCallMessage(msgId);
 }
 
 }

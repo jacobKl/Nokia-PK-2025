@@ -10,7 +10,7 @@ namespace ue
         public:
             DialState(Context& context);
             void sendCallRequest();
-            void handleUnknownRecipient() override;
+            void handleCallMessage(common::MessageId msgId) override;
             void handleTimeout() override;
 
         private:

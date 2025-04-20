@@ -2,6 +2,8 @@
 
 #include "Messages/BtsId.hpp"
 #include "Messages/PhoneNumber.hpp"
+#include "Messages/IncomingMessage.hpp"
+
 namespace ue
 {
 
@@ -14,7 +16,7 @@ public:
     virtual void handleAttachAccept() = 0;
     virtual void handleAttachReject() = 0;
     virtual void handleDisconnect() = 0;
-    virtual void handleUnknownRecipient() = 0;
+    virtual void handleCallMessage(common::MessageId msgId) = 0;
 };
 
 class IBtsPort

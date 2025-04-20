@@ -18,10 +18,18 @@ namespace ue {
         context.timer.startTimer(1000ms);
     }
 
-    void DialState::handleUnknownRecipient() {
-        context.timer.stopTimer();
-        context.setState<ConnectedState>();
-        context.user.showPeerUserNotAvailable(iDialMode.getPhoneNumber());
+    void DialState::handleCallMessage(common::MessageId msgId) {
+
+        switch (msgId) {
+            case common::MessageId::CallRequest:
+                printf("handling call request. \n");
+            break;
+            case common::MessageId::UnknownRecipient:
+                context.timer.stopTimer();
+                context.setState<ConnectedState>();
+                context.user.showPeerUserNotAvailable(iDialMode.getPhoneNumber());
+            break;
+        }
     }
 
     void DialState::handleTimeout() {

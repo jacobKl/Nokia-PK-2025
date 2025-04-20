@@ -3,6 +3,7 @@
 #include "IEventsHandler.hpp"
 #include "Logger/PrefixedLogger.hpp"
 #include "Context.hpp"
+#include "Messages/IncomingMessage.hpp"
 
 namespace ue
 {
@@ -21,7 +22,7 @@ public:
     void handleAttachAccept() override;
     void handleAttachReject() override;
     void handleDisconnect() override;
-    void handleUnknownRecipient() override;
+    void handleCallMessage(common::MessageId msgId) override;
 
 protected:
     Context& context;
