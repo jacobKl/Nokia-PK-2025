@@ -6,6 +6,7 @@ namespace ue
     {
         EXPECT_CALL(timerPortMock, stopTimer());
         EXPECT_CALL(userPortMock, showConnected());
+        EXPECT_CALL(userPortMock, doubleClickCallback(_));
 
         objectUnderTest.handleAttachAccept();
     }

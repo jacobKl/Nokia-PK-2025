@@ -16,3 +16,5 @@ _deps
 .DS_Store
 src/build
 src/googletest/
+build
+.vscode
