@@ -25,6 +25,8 @@ struct IUeGuiMock : public IUeGui
     MOCK_METHOD(void, showNotConnected, (), (final));
     MOCK_METHOD(void, showNewSms, (bool present), (final));
     MOCK_METHOD(void, showPeerUserNotAvailable, (common::PhoneNumber), (final));
+    MOCK_METHOD(void, setDoubleClickCallback, (Callback), (override));
+    MOCK_METHOD(void, setHomeCallback, (Callback), (override));
 
     MOCK_METHOD(IListViewMode&, setListViewMode, (), (final));
     MOCK_METHOD(ISmsComposeMode&, setSmsComposeMode, (), (final));
