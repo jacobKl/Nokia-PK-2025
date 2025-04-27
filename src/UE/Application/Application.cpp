@@ -49,6 +49,16 @@ void Application::handleCallMessage(common::MessageId msgId)
     context.state->handleCallMessage(msgId);
 }
 
+void Application::handleCallAccept(common::MessageId msgId)
+{
+    context.state->handleCallAccept(msgId);
+}
+
+void Application::handleCallDrop(common::MessageId msgId)
+{
+    context.state->handleCallDrop(msgId);
+}
+
 Context& Application::getContext() {
     return context;
 }

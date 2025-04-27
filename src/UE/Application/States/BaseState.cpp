@@ -47,4 +47,16 @@ void BaseState::handleCallMessage(common::MessageId msgId)
     logger.logError("BaseState: handling call message.");
 }
 
+void BaseState::handleCallAccept(common::MessageId msgId)
+{
+    logger.logError("BaseState: handling call accept.");
+}
+
+void BaseState::handleCallDrop(common::MessageId msgId)
+{
+    logger.logError("BaseState: handling call drop.");
+}
+
+
+
 }
