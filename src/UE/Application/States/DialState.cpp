@@ -18,7 +18,7 @@ namespace ue {
         context.timer.startTimer(1000ms);
     }
 
-    void DialState::handleCallMessage(common::MessageId msgId) {
+    void DialState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from) {
         switch (msgId) {
             case common::MessageId::CallAccepted:
                 context.timer.stopTimer();

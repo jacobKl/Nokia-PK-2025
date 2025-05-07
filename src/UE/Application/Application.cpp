@@ -44,19 +44,14 @@ void Application::handleDisconnect()
     context.state->handleDisconnect();
 }
 
-void Application::handleCallMessage(common::MessageId msgId) 
+void Application::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
 {
-    context.state->handleCallMessage(msgId);
+    context.state->handleCallMessage(msgId, from);
 }
 
-void Application::handleCallAccept(common::MessageId msgId)
+void Application::handleCallReceive(common::MessageId msgId, common::PhoneNumber from)
 {
-    context.state->handleCallAccept(msgId);
-}
-
-void Application::handleCallDrop(common::MessageId msgId)
-{
-    context.state->handleCallDrop(msgId);
+    context.state->handleCallReceive(msgId, from);
 }
 
 Context& Application::getContext() {

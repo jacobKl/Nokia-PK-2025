@@ -10,6 +10,7 @@ class ConnectedState : public BaseState
 public:
     ConnectedState(Context& context);
     virtual void changeScreen();
+    void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
 };
 
 }

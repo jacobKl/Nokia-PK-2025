@@ -1,5 +1,6 @@
 #include "UserPort.hpp"
 #include "UeGui/IListViewMode.hpp"
+#include "UeGui/ITextMode.hpp"
 
 namespace ue
 {
@@ -53,6 +54,12 @@ void UserPort::showPeerUserNotAvailable(common::PhoneNumber number) {
     gui.setAcceptCallback(handler);
     gui.setRejectCallback(handler);
     gui.setHomeCallback(handler);
+}
+
+void UserPort::showCallRequest(common::PhoneNumber number)
+{
+    auto &alertMode = gui.setAlertMode();
+    alertMode.setText("Call from: " + to_string(number));
 }
 
 void UserPort::acceptCallback(IUeGui::Callback acceptCallback) {

@@ -24,9 +24,28 @@ ConnectedState::ConnectedState(Context &context)
             case MAKE_CALL_SCREEN:
                 context.setState<DialState>();
                 break;
+
             case NO_SCREEN:
                 logger.logInfo("No screen selected");
                 break;
         }
 }
+
+    void ConnectedState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
+{
+    if (msgId == common::MessageId::CallRequest)
+    {
+        logger.logInfo("Incoming call from ", to_string(from));
+        context.user.showCallRequest(from);
+
+        context.user.acceptCallback([this, from] {
+            logger.logDebug("Accepting call from ", to_string(from));
+            context.bts.sendCallAccept(from);
+            context.setState<TalkingState>();
+        });
+
+    }
+}
+
+
 }
