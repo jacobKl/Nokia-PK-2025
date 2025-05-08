@@ -22,6 +22,8 @@ public:
     void showConnecting() override;
     void showConnected() override;
     void showPeerUserNotAvailable(common::PhoneNumber number) override;
+    void showCallRequest(common::PhoneNumber) override;
+
 
     virtual void acceptCallback(IUeGui::Callback acceptCallback) override;
     virtual void rejectCallback(IUeGui::Callback rejectCallback) override;

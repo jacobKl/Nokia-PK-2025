@@ -12,7 +12,7 @@ namespace ue
         public:
             DialState(Context& context);
             void sendCallRequest();
-            void handleCallMessage(common::MessageId msgId) override;
+            void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
             void handleTimeout() override;
 
         private:

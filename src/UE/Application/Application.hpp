@@ -31,7 +31,8 @@ public:
     void handleAttachAccept() override;
     void handleAttachReject() override;
     void handleDisconnect() override;
-    void handleCallMessage(common::MessageId msgId) override;
+    void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
+    void handleCallReceive(common::MessageId msgId, common::PhoneNumber from) override;
 
     Context& getContext();
 

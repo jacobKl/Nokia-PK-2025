@@ -42,9 +42,17 @@ void BaseState::handleDisconnect()
     context.setState<NotConnectedState>();
 }
 
-void BaseState::handleCallMessage(common::MessageId msgId) 
+void BaseState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
 {
-    logger.logError("BaseState: handling call message.");
+    logger.logInfo("BaseState: call message incoming from ", to_string(from), ", msgId=", static_cast<int>(msgId));
 }
+
+void BaseState::handleCallReceive(common::MessageId msgId, common::PhoneNumber from)
+{
+    logger.logError("BaseState: handling receving call.");
+}
+
+
+
 
 }
