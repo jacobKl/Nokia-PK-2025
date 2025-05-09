@@ -2,6 +2,7 @@
 #include "ConnectedState.hpp"
 #include "ComposeSmsState.hpp"
 #include "DialState.hpp"
+#include "TalkingState.hpp"
 
 namespace ue
 {
