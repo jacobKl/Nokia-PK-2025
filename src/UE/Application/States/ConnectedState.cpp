@@ -1,4 +1,6 @@
 #include "../Enums/ScreenType.hpp"
+
+#include "TalkingState.hpp"
 #include "ConnectedState.hpp"
 #include "ComposeSmsState.hpp"
 #include "DialState.hpp"

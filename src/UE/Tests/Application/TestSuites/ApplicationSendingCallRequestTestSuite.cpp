@@ -26,8 +26,9 @@ namespace ue {
     {   
         setup();
         EXPECT_CALL(timerPortMock, stopTimer()).Times(1);
+        common::PhoneNumber phoneNumber{211};
 
-        objectUnderTest.handleCallMessage(common::MessageId::CallAccepted);
+        objectUnderTest.handleCallMessage(common::MessageId::CallAccepted, phoneNumber);
     }
 
     TEST_F(ApplicationSendingCallRequestTestSuite, shallHandleBtsUnknownRecipient)
@@ -36,7 +37,8 @@ namespace ue {
         EXPECT_CALL(timerPortMock, stopTimer()).Times(1);
         EXPECT_CALL(userPortMock, showConnected());
         EXPECT_CALL(userPortMock, showPeerUserNotAvailable(_));
+        common::PhoneNumber phoneNumber{211};
 
-        objectUnderTest.handleCallMessage(common::MessageId::UnknownRecipient);
+        objectUnderTest.handleCallMessage(common::MessageId::UnknownRecipient, phoneNumber);
     }
 }
