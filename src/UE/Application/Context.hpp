@@ -15,6 +15,7 @@ struct Context
     ITimerPort& timer;
     std::unique_ptr<IEventsHandler> state{};
 
+    common::PhoneNumber peerPhoneNumber;
     template <typename State, typename ...Arg>
     void setState(Arg&& ...arg)
     {

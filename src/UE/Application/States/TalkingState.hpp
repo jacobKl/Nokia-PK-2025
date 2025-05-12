@@ -8,5 +8,6 @@ namespace ue
     {
         public:
             TalkingState(Context& context);
+            void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
     };
 }

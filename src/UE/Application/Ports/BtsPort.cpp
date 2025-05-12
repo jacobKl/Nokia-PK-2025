@@ -102,4 +102,9 @@ void BtsPort::sendCallAccept(common::PhoneNumber to)
     transport.sendMessage(outgoingMessage.getMessage());
 }
 
+void BtsPort::sendCallDropped(common::PhoneNumber to)
+{
+    common::OutgoingMessage outgoingMessage(common::MessageId::CallDropped, phoneNumber, to);
+    transport.sendMessage(outgoingMessage.getMessage());
+}
 }
