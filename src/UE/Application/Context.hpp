@@ -3,6 +3,9 @@
 #include "IEventsHandler.hpp"
 #include "Logger/ILogger.hpp"
 #include <memory>
+#include <vector>
+#include "Sms/Sms.hpp"
+#include "Messages/PhoneNumber.hpp"
 
 namespace ue
 {
@@ -15,7 +18,12 @@ struct Context
     ITimerPort& timer;
     std::unique_ptr<IEventsHandler> state{};
 
+    common::PhoneNumber phoneNumber;
     common::PhoneNumber peerPhoneNumber;
+
+    std::vector<Sms> messages;
+    bool hasUnreadMessages = false;
+
     template <typename State, typename ...Arg>
     void setState(Arg&& ...arg)
     {
