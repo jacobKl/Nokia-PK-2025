@@ -40,6 +40,7 @@ ConnectedState::ConnectedState(Context &context)
     {
         logger.logInfo("Incoming call from ", to_string(from));
         context.user.showCallRequest(from);
+        context.peerPhoneNumber = from;
 
         context.user.acceptCallback([this, from] {
             logger.logDebug("Accepting call from ", to_string(from));
@@ -47,6 +48,11 @@ ConnectedState::ConnectedState(Context &context)
             context.setState<TalkingState>();
         });
 
+        context.user.rejectCallback([this, from] {
+            logger.logDebug("Rejecting call from ", to_string(from));
+            context.bts.sendCallDropped(from);
+            context.setState<ConnectedState>();
+        });
     }
 }
 
