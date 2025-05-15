@@ -52,7 +52,9 @@ void BaseState::handleCallReceive(common::MessageId msgId, common::PhoneNumber f
     logger.logError("BaseState: handling receving call.");
 }
 
-
-
+void BaseState::handleSmsReceived(common::PhoneNumber from, const std::string& text)
+{
+    logger.logInfo("SMS saved from ", from, " with text: ", text);
+}
 
 }
