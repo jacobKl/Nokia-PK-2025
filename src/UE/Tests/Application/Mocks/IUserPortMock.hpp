@@ -11,7 +11,6 @@ class IUserEventsHandlerMock : public IUserEventsHandler
 public:
     IUserEventsHandlerMock();
     ~IUserEventsHandlerMock() override;
-
 };
 
 class IUserPortMock : public IUserPort
@@ -25,6 +24,8 @@ public:
     MOCK_METHOD(void, showConnected, (), (final));
     MOCK_METHOD(void, showPeerUserNotAvailable, (common::PhoneNumber), (override));
     MOCK_METHOD(void, showCallRequest, (common::PhoneNumber), (override));
+    MOCK_METHOD(void, showCallDropped, (), (override));
+    MOCK_METHOD(void, showCallTimeout, (), (override));
 
     MOCK_METHOD(void, acceptCallback, (IUeGui::Callback), (override));
     MOCK_METHOD(void, rejectCallback, (IUeGui::Callback), (override));

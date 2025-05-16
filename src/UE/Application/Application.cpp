@@ -19,6 +19,11 @@ Application::~Application()
     logger.logInfo("Stopped");
 }
 
+std::string Application::getStateName()
+{
+    return dynamic_cast<BaseState*>(context.state.get())->getName();
+}
+
 void Application::handleTimeout()
 {
     context.state->handleTimeout();

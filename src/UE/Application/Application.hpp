@@ -35,6 +35,7 @@ public:
     void handleCallReceive(common::MessageId msgId, common::PhoneNumber from) override;
 
     Context& getContext();
+    std::string getStateName();
 
 private:
     Context context;

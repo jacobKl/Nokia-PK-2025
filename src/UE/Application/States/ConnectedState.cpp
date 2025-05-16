@@ -9,6 +9,8 @@
 namespace ue
 {
 
+    std::string ConnectedState::getName() const { return "ConnectedState"; }
+
 ConnectedState::ConnectedState(Context &context)
     : BaseState(context, "ConnectedState")
 {
@@ -34,7 +36,7 @@ ConnectedState::ConnectedState(Context &context)
         }
 }
 
-    void ConnectedState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
+void ConnectedState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
 {
     if (msgId == common::MessageId::CallRequest)
     {
