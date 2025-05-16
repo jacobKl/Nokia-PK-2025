@@ -30,6 +30,7 @@ public:
     MOCK_METHOD(void, sendSms, (common::PhoneNumber, std::string), (override));
     MOCK_METHOD(void, sendCallRequest, (common::PhoneNumber), (override));
     MOCK_METHOD(void, sendCallAccept, (common::PhoneNumber), (override));
+    MOCK_METHOD(void, sendCallDropped, (common::PhoneNumber), (override));  
 };
 
 }
