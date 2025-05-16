@@ -11,6 +11,7 @@ public:
     ConnectedState(Context& context);
     virtual void changeScreen();
     void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
+    std::string getName() const override;
 };
 
 }

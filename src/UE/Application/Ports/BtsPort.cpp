@@ -53,6 +53,7 @@ void BtsPort::handleMessage(BinaryMessage msg)
             }
             case common::MessageId::UnknownRecipient:
             case common::MessageId::CallRequest:
+            case common::MessageId::CallDropped:
             {
                 handler->handleCallMessage(msgId, from);
                 break;

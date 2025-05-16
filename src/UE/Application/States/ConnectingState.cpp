@@ -4,6 +4,7 @@
 
 namespace ue
 {
+    std::string ConnectingState::getName() const { return "ConnectingState"; }
 
     ConnectingState::ConnectingState(Context &context)
         : BaseState(context, "ConnectingState")

@@ -4,6 +4,7 @@
 using namespace std::chrono_literals;
 namespace ue
 {
+    std::string NotConnectedState::getName() const { return "NotConnectedState"; }
 
     NotConnectedState::NotConnectedState(Context &context)
         : BaseState(context, "NotConnectedState")

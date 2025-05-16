@@ -5,6 +5,8 @@ using namespace std::chrono_literals;
 
 namespace ue {
 
+    std::string DialState::getName() const { return "DialState"; }
+
     DialState::DialState(Context &context) : ConnectedState(context), iDialMode(context.user.activateDialMode())
     {
         context.user.homeCallback([this]{ this->context.user.showConnected(); });
@@ -29,10 +31,23 @@ namespace ue {
                 context.setState<ConnectedState>();
                 context.user.showPeerUserNotAvailable(iDialMode.getPhoneNumber());
             break;
+            case common::MessageId::CallDropped:
+                context.timer.stopTimer();
+                context.setState<ConnectedState>();
+                context.user.showCallDropped();
+            break;
         }
     }
 
     void DialState::handleTimeout() {
-        printf("[DialState] handle timeout.\n");
+        context.timer.stopTimer();
+        context.setState<ConnectedState>();
+        context.user.showCallTimeout();
+    }
+
+    void DialState::handleReject(common::PhoneNumber from) {
+        context.timer.stopTimer();
+        context.bts.sendCallDropped(from);
+        context.setState<ConnectedState>();
     }
 }
