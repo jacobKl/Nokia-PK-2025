@@ -61,14 +61,11 @@ void Application::handleSmsReceived(common::PhoneNumber from, const std::string&
 {
     logger.logInfo("SMS received from ", from);
     
-    // Create and store the new SMS
     Sms newSms = Sms(text, from, context.phoneNumber, std::chrono::system_clock::now());
     context.messages.push_back(newSms);
-    
-    // Set unread messages flag
     context.hasUnreadMessages = true;
     
-    // Log all messages in the console
+    // More advanced log for debug purposes
     logger.logInfo("Current SMS database contains ", context.messages.size(), " messages:");
     for (size_t i = 0; i < context.messages.size(); ++i) {
         const auto& sms = context.messages[i];
@@ -76,7 +73,6 @@ void Application::handleSmsReceived(common::PhoneNumber from, const std::string&
         logger.logInfo("  [", i+1, "] From: ", sms.getFrom(), " | Status: ", status, " | Text: ", sms.getText());
     }
     
-    // Let the current state handle this event 
     context.state->handleSmsReceived(from, text);
 }
 
