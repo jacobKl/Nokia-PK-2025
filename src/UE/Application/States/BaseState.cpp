@@ -8,7 +8,7 @@ namespace ue
 
     BaseState::BaseState(Context &context, const std::string &name)
         : context(context),
-        logger(context.logger, "[" + name + "]")
+          logger(context.logger, "[" + name + "]")
     {
         logger.logDebug("entry");
     }
@@ -52,5 +52,10 @@ namespace ue
     void BaseState::handleCallReceive(common::MessageId msgId, common::PhoneNumber from)
     {
         logger.logError("BaseState: handling receving call.");
+    }
+
+    void BaseState::handleSmsReceived(common::PhoneNumber from, const std::string& text)
+    {
+        logger.logInfo("SMS saved from ", from, " with text: ", text);
     }
 }
