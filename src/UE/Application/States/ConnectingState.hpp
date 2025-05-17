@@ -12,6 +12,7 @@ public:
     void handleAttachAccept() override;
     void handleAttachReject() override;
     void handleTimeout() override;
+    std::string getName() const override;
 };
 
 }

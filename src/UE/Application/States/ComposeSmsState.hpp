@@ -11,6 +11,7 @@ namespace ue
     public:
         ComposeSmsState(Context& context);
         void sendSms();
+        std::string getName() const override;
 
     private:
         IUeGui::ISmsComposeMode& iSmsComposeMode;

@@ -36,6 +36,7 @@ public:
     void handleSmsReceived(common::PhoneNumber from, const std::string& text) override;
 
     Context& getContext();
+    std::string getStateName();
 
 private:
     Context context;

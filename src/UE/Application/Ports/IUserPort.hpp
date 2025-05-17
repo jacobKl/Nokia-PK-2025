@@ -21,6 +21,8 @@ public:
     virtual void showConnected() = 0;
     virtual void showPeerUserNotAvailable(common::PhoneNumber number) = 0;
     virtual void showCallRequest(common::PhoneNumber) = 0;
+    virtual void showCallDropped() = 0;
+    virtual void showCallTimeout() = 0;
 
     virtual void acceptCallback(IUeGui::Callback acceptCallback) = 0;
     virtual void rejectCallback(IUeGui::Callback rejectCallback) = 0;

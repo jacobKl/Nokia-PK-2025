@@ -14,6 +14,8 @@ public:
     BaseState(Context& context, const std::string& name);
     ~BaseState() override;
 
+    virtual std::string getName() const = 0;
+
     // ITimerEventsHandler interface
     void handleTimeout() override;
 

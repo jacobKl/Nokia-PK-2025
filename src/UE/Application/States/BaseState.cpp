@@ -4,57 +4,58 @@
 namespace ue
 {
 
-BaseState::BaseState(Context &context, const std::string &name)
-    : context(context),
-      logger(context.logger, "[" + name + "]")
-{
-    logger.logDebug("entry");
-}
+    std::string BaseState::getName() const { return "BaseState"; }
 
-BaseState::~BaseState()
-{
-    logger.logDebug("exit");
-}
+    BaseState::BaseState(Context &context, const std::string &name)
+        : context(context),
+          logger(context.logger, "[" + name + "]")
+    {
+        logger.logDebug("entry");
+    }
 
-void BaseState::handleTimeout()
-{
-    logger.logError("Uexpected: handleTimeout");
-}
+    BaseState::~BaseState()
+    {
+        logger.logDebug("exit");
+    }
 
-void BaseState::handleSib(common::BtsId btsId)
-{
-    logger.logError("Uexpected: handleSib: ", btsId);
-}
+    void BaseState::handleTimeout()
+    {
+        logger.logError("Uexpected: handleTimeout");
+    }
 
-void BaseState::handleAttachAccept()
-{
-    logger.logError("Uexpected: handleAttachAccept");
-}
+    void BaseState::handleSib(common::BtsId btsId)
+    {
+        logger.logError("Uexpected: handleSib: ", btsId);
+    }
 
-void BaseState::handleAttachReject()
-{
-    logger.logError("Uexpected: handleAttachReject");
-}
+    void BaseState::handleAttachAccept()
+    {
+        logger.logError("Uexpected: handleAttachAccept");
+    }
 
-void BaseState::handleDisconnect() 
-{
-    logger.logError("BaseState: handling BTS Disconnect.");
-    context.setState<NotConnectedState>();
-}
+    void BaseState::handleAttachReject()
+    {
+        logger.logError("Uexpected: handleAttachReject");
+    }
 
-void BaseState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
-{
-    logger.logInfo("BaseState: call message incoming from ", to_string(from), ", msgId=", static_cast<int>(msgId));
-}
+    void BaseState::handleDisconnect() 
+    {
+        logger.logError("BaseState: handling BTS Disconnect.");
+        context.setState<NotConnectedState>();
+    }
 
-void BaseState::handleCallReceive(common::MessageId msgId, common::PhoneNumber from)
-{
-    logger.logError("BaseState: handling receving call.");
-}
+    void BaseState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
+    {
+        logger.logInfo("BaseState: call message incoming from ", to_string(from), ", msgId=", static_cast<int>(msgId));
+    }
 
-void BaseState::handleSmsReceived(common::PhoneNumber from, const std::string& text)
-{
-    logger.logInfo("SMS saved from ", from, " with text: ", text);
-}
+    void BaseState::handleCallReceive(common::MessageId msgId, common::PhoneNumber from)
+    {
+        logger.logError("BaseState: handling receving call.");
+    }
 
+    void BaseState::handleSmsReceived(common::PhoneNumber from, const std::string& text)
+    {
+        logger.logInfo("SMS saved from ", from, " with text: ", text);
+    }
 }

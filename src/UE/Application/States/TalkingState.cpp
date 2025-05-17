@@ -1,6 +1,8 @@
 #include "TalkingState.hpp"
 
 namespace ue {
+    std::string TalkingState::getName() const { return "TalkingState"; }
+
     TalkingState::TalkingState(Context &context) : ConnectedState(context) {
         logger.logInfo("[TalkingState] Talking state constructor.");
 

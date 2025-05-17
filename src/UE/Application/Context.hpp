@@ -29,6 +29,11 @@ struct Context
     {
         state = std::make_unique<State>(*this, std::forward<Arg>(arg)...);
     }
+
+    IEventsHandler* getState() const
+    {
+        return state.get();
+    }
 };
 
 }

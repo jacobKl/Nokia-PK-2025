@@ -2,6 +2,8 @@
 
 namespace ue {
 
+    std::string ComposeSmsState::getName() const { return "ComposeSmsState"; }
+
     ComposeSmsState::ComposeSmsState(Context &context) :
             ConnectedState(context),
             iSmsComposeMode(context.user.activateComposeMode()) {

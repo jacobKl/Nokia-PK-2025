@@ -23,6 +23,8 @@ public:
     void showConnected() override;
     void showPeerUserNotAvailable(common::PhoneNumber number) override;
     void showCallRequest(common::PhoneNumber) override;
+    void showCallDropped() override;
+    void showCallTimeout() override;
 
 
     virtual void acceptCallback(IUeGui::Callback acceptCallback) override;

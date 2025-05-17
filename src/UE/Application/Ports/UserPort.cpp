@@ -62,6 +62,34 @@ void UserPort::showCallRequest(common::PhoneNumber number)
     alertMode.setText("Call from: " + to_string(number));
 }
 
+void UserPort::showCallDropped()
+{
+    auto &alertMode = gui.setAlertMode();
+    alertMode.setText("Call dropped.");
+
+    const auto handler = [&] {
+        gui.setListViewMode();
+    };
+
+    gui.setAcceptCallback(handler);
+    gui.setRejectCallback(handler);
+    gui.setHomeCallback(handler);
+}
+
+void UserPort::showCallTimeout()
+{
+    auto &alertMode = gui.setAlertMode();
+    alertMode.setText("Call timeout.");
+
+    const auto handler = [&] {
+        gui.setListViewMode();
+    };
+
+    gui.setAcceptCallback(handler);
+    gui.setRejectCallback(handler);
+    gui.setHomeCallback(handler);
+}
+
 void UserPort::acceptCallback(IUeGui::Callback acceptCallback) {
     gui.setAcceptCallback(acceptCallback);
 }
