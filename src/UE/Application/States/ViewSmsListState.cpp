@@ -7,6 +7,7 @@ namespace ue {
     ViewSmsListState::ViewSmsListState(Context& context)
         : ConnectedState(context)
     {
+      	context.user.showNewSmsIndicator(false);
         refreshList();
         context.user.smsSelectedCallback([this](std::size_t idx){ handleSmsSelected(idx); });
         context.user.rejectCallback([this](){ closeView(); });
