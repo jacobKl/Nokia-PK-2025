@@ -157,8 +157,9 @@ void UserPort::showSmsView(const std::string& from, const std::string& text)
 
 void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)
 {
-    gui.setAcceptCallback([this, callback]() {
-        auto sel = gui.setListViewMode().getCurrentItemIndex();
+    gui.setDoubleClickCallback([this, callback]() {
+        auto &list = gui.setListViewMode();
+        auto sel = list.getCurrentItemIndex();
         if (sel.first) callback(sel.second);
     });
 }
