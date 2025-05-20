@@ -40,6 +40,7 @@ public:
     void showEmptySmsListView() override;
     void showSmsView(const std::string& text) override;
     void smsSelectedCallback(std::function<void(size_t)> callback) override;
+    void showNewSmsIndicator(bool hasNew) override;
 
 private:
     common::PrefixedLogger logger;

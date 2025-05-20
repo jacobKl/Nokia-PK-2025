@@ -29,7 +29,7 @@ public:
     virtual void doubleClickCallback(IUeGui::Callback doubleClickCallback) = 0;
     virtual void homeCallback(IUeGui::Callback homeCallback) = 0;
     virtual int getScreenId() = 0;
-    
+
     virtual IUeGui::ISmsComposeMode &activateComposeMode() = 0;
     virtual IUeGui::IDialMode &activateDialMode() = 0;
 
@@ -37,6 +37,7 @@ public:
     virtual void showEmptySmsListView() = 0;
     virtual void showSmsView(const std::string& text) = 0;
     virtual void smsSelectedCallback(std::function<void(size_t)> callback) = 0;
+    virtual void showNewSmsIndicator(bool hasNew) = 0;
 };
 
 }
