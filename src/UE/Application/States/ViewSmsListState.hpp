@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ConnectedState.hpp"
+#include <string>
 
 namespace ue {
 
@@ -11,9 +12,11 @@ public:
 
     std::string getName() const override { return "ViewSmsListState"; }
 
+    void handleSmsReceived(common::PhoneNumber from, const std::string& text) override;
 private:
     void handleSmsSelected(std::size_t index);
     void closeView();
+    void refreshList();
 };
 
 }
