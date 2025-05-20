@@ -35,7 +35,7 @@ public:
 
     virtual void showSmsListView(const std::vector<std::string>& smsInfoItems) = 0;
     virtual void showEmptySmsListView() = 0;
-    virtual void showSmsView(const std::string& from, const std::string& text) = 0;
+    virtual void showSmsView(const std::string& text) = 0;
     virtual void smsSelectedCallback(std::function<void(size_t)> callback) = 0;
 };
 

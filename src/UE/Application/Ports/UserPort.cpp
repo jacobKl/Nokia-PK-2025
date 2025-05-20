@@ -148,11 +148,10 @@ void UserPort::showEmptySmsListView()
     listView.addSelectionListItem("No messages", "");
 }
 
-void UserPort::showSmsView(const std::string& from, const std::string& text)
+void UserPort::showSmsView(const std::string& text)
 {
-    auto &textMode = gui.setViewTextMode();
-    textMode.setText("From: " + from);
-    textMode.setText(text);
+    auto &mode = gui.setViewTextMode();
+    mode.setText(text);
 }
 
 void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)

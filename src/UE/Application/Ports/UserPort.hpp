@@ -38,7 +38,7 @@ public:
 
     void showSmsListView(const std::vector<std::string>& smsInfoItems) override;
     void showEmptySmsListView() override;
-    void showSmsView(const std::string& from, const std::string& text) override;
+    void showSmsView(const std::string& text) override;
     void smsSelectedCallback(std::function<void(size_t)> callback) override;
 
 private:
