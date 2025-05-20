@@ -163,5 +163,9 @@ void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)
     });
 }
 
+    void UserPort::showNewSmsIndicator(bool hasNew)
+{
+    gui.showNewSms(hasNew);
+}
 
 }
