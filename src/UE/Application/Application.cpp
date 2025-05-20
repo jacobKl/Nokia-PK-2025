@@ -65,8 +65,7 @@ void Application::handleCallReceive(common::MessageId msgId, common::PhoneNumber
 
 void Application::handleSmsReceived(common::PhoneNumber from, const std::string& text)
 {
-    logger.logInfo("SMS received from ", from);
-    
+
     Sms newSms = Sms(text, from, context.phoneNumber, std::chrono::system_clock::now());
     context.messages.push_back(newSms);
     context.hasUnreadMessages = true;
@@ -75,14 +74,6 @@ void Application::handleSmsReceived(common::PhoneNumber from, const std::string&
 
     if (dynamic_cast<ViewSmsListState*>(context.state.get()) == nullptr) {
         context.user.showNewSmsIndicator(true);
-    }
-
-    // More advanced log for debug purposes
-    logger.logInfo("Current SMS database contains ", context.messages.size(), " messages:");
-    for (size_t i = 0; i < context.messages.size(); ++i) {
-        const auto& sms = context.messages[i];
-        std::string status = sms.hasBeenRead() ? "read" : "unread";
-        logger.logInfo("  [", i+1, "] From: ", sms.getFrom(), " | Status: ", status, " | Text: ", sms.getText());
     }
 
 }
