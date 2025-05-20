@@ -5,6 +5,7 @@
 #include "ComposeSmsState.hpp"
 #include "DialState.hpp"
 #include "TalkingState.hpp"
+#include "ViewSmsListState.hpp"
 
 namespace ue
 {
@@ -24,7 +25,7 @@ ConnectedState::ConnectedState(Context &context)
                 context.setState<ComposeSmsState>();
                 break;
             case VIEW_SMS_SCREEN:
-                logger.logInfo("Screen not implemented.");
+                context.setState<ViewSmsListState>();
                 break;
             case MAKE_CALL_SCREEN:
                 context.setState<DialState>();

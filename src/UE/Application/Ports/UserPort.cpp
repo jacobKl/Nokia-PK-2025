@@ -132,6 +132,40 @@ IUeGui::IDialMode &UserPort::activateDialMode() {
     return mode;
 }
 
+void UserPort::showSmsListView(const std::vector<std::string>& smsInfoItems)
+{
+    auto &listView = gui.setListViewMode();
+    listView.clearSelectionList();
+    for (const auto& info : smsInfoItems) {
+        listView.addSelectionListItem(info, "");
+    }
+}
 
+void UserPort::showEmptySmsListView()
+{
+    auto &listView = gui.setListViewMode();
+    listView.clearSelectionList();
+    listView.addSelectionListItem("No messages", "");
+}
+
+void UserPort::showSmsView(const std::string& text)
+{
+    auto &mode = gui.setViewTextMode();
+    mode.setText(text);
+}
+
+void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)
+{
+    gui.setDoubleClickCallback([this, callback]() {
+        auto &list = gui.setListViewMode();
+        auto sel = list.getCurrentItemIndex();
+        if (sel.first) callback(sel.second);
+    });
+}
+
+    void UserPort::showNewSmsIndicator(bool hasNew)
+{
+    gui.showNewSms(hasNew);
+}
 
 }
