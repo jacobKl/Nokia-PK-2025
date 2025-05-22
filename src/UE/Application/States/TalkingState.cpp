@@ -38,6 +38,6 @@ namespace ue {
 
     void TalkingState::handleCallTalk(common::PhoneNumber from, const std::string& text)
     {
-        iCallMode.appendIncomingText("[Peer]: " + text);
+        iCallMode.appendIncomingText("[" + to_string(from) + "]: " + text);
     }
 }
