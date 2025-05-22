@@ -1,4 +1,5 @@
 #include "TalkingState.hpp"
+#include "UeGui/ICallMode.hpp"
 
 namespace ue {
     std::string TalkingState::getName() const { return "TalkingState"; }
@@ -6,6 +7,13 @@ namespace ue {
     TalkingState::TalkingState(Context &context) : ConnectedState(context), iCallMode(context.user.activateCallMode()) {
         logger.logInfo("[TalkingState] Talking state constructor.");
 
+        context.user.acceptCallback([this, &context] {
+            std::string text = iCallMode.getOutgoingText();
+            if (text.empty()) return;
+            context.bts.sendCallTalk(context.peerPhoneNumber, text);
+            iCallMode.clearOutgoingText();
+            iCallMode.appendIncomingText("[Me]: " + text);
+        });
 
         context.user.rejectCallback([this, &context] {
             logger.logInfo("[TalkingState] User hung up the call.");
@@ -26,5 +34,10 @@ namespace ue {
         context.user.showConnected();
         context.setState<ConnectedState>();
     }
+    }
+
+    void TalkingState::handleCallTalk(common::PhoneNumber from, const std::string& text)
+    {
+        iCallMode.appendIncomingText("[Peer]: " + text);
     }
 }
