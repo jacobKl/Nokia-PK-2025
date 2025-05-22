@@ -35,6 +35,7 @@ public:
 
     virtual IUeGui::ISmsComposeMode &activateComposeMode() override;
     virtual IUeGui::IDialMode &activateDialMode() override;
+    virtual IUeGui::ICallMode &activateCallMode() override;
 
     void showSmsListView(const std::vector<std::string>& smsInfoItems) override;
     void showEmptySmsListView() override;

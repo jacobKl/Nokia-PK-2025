@@ -21,6 +21,8 @@ namespace ue {
     }
 
     void DialState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from) {
+        context.peerPhoneNumber = from;
+
         switch (msgId) {
             case common::MessageId::CallAccepted:
                 context.timer.stopTimer();

@@ -132,6 +132,12 @@ IUeGui::IDialMode &UserPort::activateDialMode() {
     return mode;
 }
 
+IUeGui::ICallMode &UserPort::activateCallMode() {
+    IUeGui::ICallMode &mode = gui.setCallMode();
+
+    return mode;
+}
+
 void UserPort::showSmsListView(const std::vector<std::string>& smsInfoItems)
 {
     auto &listView = gui.setListViewMode();

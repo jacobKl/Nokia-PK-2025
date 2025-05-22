@@ -10,5 +10,7 @@ namespace ue
             TalkingState(Context& context);
             void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
             std::string getName() const override;
+        private:
+            IUeGui::ICallMode& iCallMode;
     };
 }
