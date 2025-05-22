@@ -54,6 +54,11 @@ namespace ue
         logger.logError("BaseState: handling receving call.");
     }
 
+    void BaseState::handleCallTalk(common::PhoneNumber from, const std::string& text)
+    {
+        logger.logError("BaseState: unexpected CallTalk from ", to_string(from));
+    }
+
     void BaseState::handleSmsReceived(common::PhoneNumber from, const std::string& text)
     {
         logger.logInfo("SMS saved from ", from, " with text: ", text);
