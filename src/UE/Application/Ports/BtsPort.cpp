@@ -59,6 +59,12 @@ void BtsPort::handleMessage(BinaryMessage msg)
                 handler->handleCallMessage(msgId, from);
                 break;
             }
+            case common::MessageId::CallTalk:
+            {
+            	std::string talk = reader.readRemainingText();
+                handler->handleCallTalk(from, talk);
+                break;
+            }
             case common::MessageId::Sms:
             {
                 std::string text = reader.readRemainingText();
@@ -115,4 +121,12 @@ void BtsPort::sendCallDropped(common::PhoneNumber to)
     common::OutgoingMessage outgoingMessage(common::MessageId::CallDropped, phoneNumber, to);
     transport.sendMessage(outgoingMessage.getMessage());
 }
+
+void BtsPort::sendCallTalk(common::PhoneNumber to, const std::string& text)
+{
+    common::OutgoingMessage outgoingMessage(common::MessageId::CallTalk, phoneNumber, to);
+    outgoingMessage.writeText(text);
+    transport.sendMessage(outgoingMessage.getMessage());
+}
+
 }
