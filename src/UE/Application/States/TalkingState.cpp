@@ -37,6 +37,13 @@ namespace ue {
         logger.logInfo("Call dropped by peer: ", to_string(from));
         context.setState<ConnectedState>();
         context.user.showCallDropped();
+    } else if (msgId == common::MessageId::CallRequest)
+    {
+        if (from != context.peerPhoneNumber)
+        {
+            logger.logInfo("Busy: dropping new call request from ", to_string(from));
+            context.bts.sendCallDropped(from);
+        }
     }
     }
 

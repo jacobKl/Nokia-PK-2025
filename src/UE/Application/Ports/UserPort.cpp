@@ -68,7 +68,7 @@ void UserPort::showCallDropped()
     alertMode.setText("Call dropped.");
 
     const auto handler = [&] {
-        gui.setListViewMode();
+        showConnected();
     };
 
     gui.setAcceptCallback(handler);
@@ -82,7 +82,7 @@ void UserPort::showCallTimeout()
     alertMode.setText("Call timeout.");
 
     const auto handler = [&] {
-        gui.setListViewMode();
+        gui.showConnected();
     };
 
     gui.setAcceptCallback(handler);
