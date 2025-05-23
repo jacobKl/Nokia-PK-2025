@@ -35,8 +35,8 @@ namespace ue {
     if (msgId == common::MessageId::CallDropped)
     {
         logger.logInfo("Call dropped by peer: ", to_string(from));
-        context.user.showConnected();
         context.setState<ConnectedState>();
+        context.user.showCallDropped();
     }
     }
 
