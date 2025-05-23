@@ -5,7 +5,6 @@ namespace ue {
     std::string TalkingState::getName() const { return "TalkingState"; }
 
     TalkingState::TalkingState(Context &context) : ConnectedState(context), iCallMode(context.user.activateCallMode()) {
-        logger.logInfo("[TalkingState] Talking state constructor.");
 
         iCallMode.clearIncomingText();
         iCallMode.clearOutgoingText();
@@ -26,12 +25,15 @@ namespace ue {
             context.setState<ConnectedState>();
             iCallMode.clearIncomingText();
         });
-        
+
+        context.user.setCloseGuard([this]() -> bool {
+            this->context.bts.sendCallDropped(this->context.peerPhoneNumber);
+            return true;
+        });
     }
 
     void TalkingState::handleCallMessage(common::MessageId msgId, common::PhoneNumber from)
     {
-    logger.logInfo("Message received: ", to_string(msgId));
     if (msgId == common::MessageId::CallDropped)
     {
         logger.logInfo("Call dropped by peer: ", to_string(from));

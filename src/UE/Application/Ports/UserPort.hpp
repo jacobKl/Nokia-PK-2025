@@ -42,6 +42,7 @@ public:
     void showSmsView(const std::string& text) override;
     void smsSelectedCallback(std::function<void(size_t)> callback) override;
     void showNewSmsIndicator(bool hasNew) override;
+    virtual void setCloseGuard(IUeGui::CloseGuard guard) override;
 
 private:
     common::PrefixedLogger logger;

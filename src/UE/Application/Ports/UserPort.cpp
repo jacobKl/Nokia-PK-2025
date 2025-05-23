@@ -169,9 +169,13 @@ void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)
     });
 }
 
-    void UserPort::showNewSmsIndicator(bool hasNew)
+void UserPort::showNewSmsIndicator(bool hasNew)
 {
     gui.showNewSms(hasNew);
 }
 
+void UserPort::setCloseGuard(IUeGui::CloseGuard guard)
+{
+    gui.setCloseGuard(guard);
+}
 }

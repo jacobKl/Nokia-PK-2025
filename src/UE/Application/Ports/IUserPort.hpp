@@ -39,6 +39,7 @@ public:
     virtual void showSmsView(const std::string& text) = 0;
     virtual void smsSelectedCallback(std::function<void(size_t)> callback) = 0;
     virtual void showNewSmsIndicator(bool hasNew) = 0;
+    virtual void setCloseGuard(IUeGui::CloseGuard guard) = 0;
 };
 
 }
