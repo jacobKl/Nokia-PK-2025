@@ -35,12 +35,14 @@ public:
 
     virtual IUeGui::ISmsComposeMode &activateComposeMode() override;
     virtual IUeGui::IDialMode &activateDialMode() override;
+    virtual IUeGui::ICallMode &activateCallMode() override;
 
     void showSmsListView(const std::vector<std::string>& smsInfoItems) override;
     void showEmptySmsListView() override;
     void showSmsView(const std::string& text) override;
     void smsSelectedCallback(std::function<void(size_t)> callback) override;
     void showNewSmsIndicator(bool hasNew) override;
+    virtual void setCloseGuard(IUeGui::CloseGuard guard) override;
 
 private:
     common::PrefixedLogger logger;

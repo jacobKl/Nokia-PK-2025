@@ -56,6 +56,9 @@ void ConnectedState::handleCallMessage(common::MessageId msgId, common::PhoneNum
             context.bts.sendCallDropped(from);
             context.setState<ConnectedState>();
         });
+    } else if (msgId == common::MessageId::CallAccepted) {
+      	logger.logInfo("Call accepted from ", to_string(from));
+      	context.setState<TalkingState>();
     }
 }
 

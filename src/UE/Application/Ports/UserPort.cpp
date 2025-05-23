@@ -68,7 +68,7 @@ void UserPort::showCallDropped()
     alertMode.setText("Call dropped.");
 
     const auto handler = [&] {
-        gui.setListViewMode();
+        showConnected();
     };
 
     gui.setAcceptCallback(handler);
@@ -82,7 +82,7 @@ void UserPort::showCallTimeout()
     alertMode.setText("Call timeout.");
 
     const auto handler = [&] {
-        gui.setListViewMode();
+        gui.showConnected();
     };
 
     gui.setAcceptCallback(handler);
@@ -132,6 +132,12 @@ IUeGui::IDialMode &UserPort::activateDialMode() {
     return mode;
 }
 
+IUeGui::ICallMode &UserPort::activateCallMode() {
+    IUeGui::ICallMode &mode = gui.setCallMode();
+
+    return mode;
+}
+
 void UserPort::showSmsListView(const std::vector<std::string>& smsInfoItems)
 {
     auto &listView = gui.setListViewMode();
@@ -163,9 +169,13 @@ void UserPort::smsSelectedCallback(std::function<void(size_t)> callback)
     });
 }
 
-    void UserPort::showNewSmsIndicator(bool hasNew)
+void UserPort::showNewSmsIndicator(bool hasNew)
 {
     gui.showNewSms(hasNew);
 }
 
+void UserPort::setCloseGuard(IUeGui::CloseGuard guard)
+{
+    gui.setCloseGuard(guard);
+}
 }

@@ -33,6 +33,7 @@ public:
     void handleDisconnect() override;
     void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) override;
     void handleCallReceive(common::MessageId msgId, common::PhoneNumber from) override;
+    void handleCallTalk(common::PhoneNumber from, const std::string& text) override;
     void handleSmsReceived(common::PhoneNumber from, const std::string& text) override;
 
     Context& getContext();

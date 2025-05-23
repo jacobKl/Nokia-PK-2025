@@ -63,6 +63,11 @@ void Application::handleCallReceive(common::MessageId msgId, common::PhoneNumber
     context.state->handleCallReceive(msgId, from);
 }
 
+void Application::handleCallTalk(common::PhoneNumber from, const std::string& text)
+{
+    context.state->handleCallTalk(from, text);
+}
+
 void Application::handleSmsReceived(common::PhoneNumber from, const std::string& text)
 {
 
