@@ -1,5 +1,6 @@
 #include "DialState.hpp"
 #include "TalkingState.hpp"
+#include "UeGui/ICallMode.hpp"
 
 using namespace std::chrono_literals;
 
@@ -9,6 +10,16 @@ namespace ue {
 
     DialState::DialState(Context &context) : ConnectedState(context), iDialMode(context.user.activateDialMode())
     {
+        // This code sets phrase "Incoming text" in text box instead of old call talk history
+        // TODO: If this would generate problems (ie. in tests), just delete it
+        auto &callMode = dynamic_cast<IUeGui::ICallMode&>(context.user.activateCallMode());
+        callMode.clearIncomingText();
+        callMode.clearOutgoingText();
+        callMode.appendIncomingText("Incoming text");
+
+        // back to dial mode
+        context.user.activateDialMode();
+
         context.user.homeCallback([this]{ this->context.user.showConnected(); });
         context.user.acceptCallback([this]{ sendCallRequest(); });
     }

@@ -7,6 +7,9 @@ namespace ue {
     TalkingState::TalkingState(Context &context) : ConnectedState(context), iCallMode(context.user.activateCallMode()) {
         logger.logInfo("[TalkingState] Talking state constructor.");
 
+        iCallMode.clearIncomingText();
+        iCallMode.clearOutgoingText();
+
         context.user.acceptCallback([this, &context] {
             std::string text = iCallMode.getOutgoingText();
             if (text.empty()) return;
@@ -21,6 +24,7 @@ namespace ue {
             context.bts.sendCallDropped(context.peerPhoneNumber);
             context.user.showConnected();
             context.setState<ConnectedState>();
+            iCallMode.clearIncomingText();
         });
         
     }
