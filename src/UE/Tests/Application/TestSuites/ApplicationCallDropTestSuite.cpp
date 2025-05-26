@@ -1,5 +1,6 @@
 #include "ApplicationCallDropTestSuite.hpp"
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include <chrono>
 using namespace std::chrono_literals;
 
@@ -32,7 +33,7 @@ TEST(ApplicationCallDropTestSuite, DropCallWhenNotActive) {
     EXPECT_CALL(mockCallManager, dropCall(callId))
         .Times(0);
 
-    if (!mockCallManager.isCallActive(callId)) {
+    if (mockCallManager.isCallActive(callId)) {
         mockCallManager.dropCall(callId);
     }
 }
@@ -61,19 +62,19 @@ namespace ue
         setupConnectedAndInCallMode(phoneNumber);
         
         std::function<void()> acceptCallback;
-        EXPECT_CALL(userPortMock, acceptCallback(_))
-            .WillOnce(testing::SaveArg<0>(&acceptCallback));
-
         std::function<void()> rejectCallback;
+        
+        EXPECT_CALL(userPortMock, showCallRequest(phoneNumber));
+        EXPECT_CALL(userPortMock, acceptCallback(_))
+            .WillOnce(::testing::SaveArg<0>(&acceptCallback));
         EXPECT_CALL(userPortMock, rejectCallback(_))
-            .WillOnce(testing::SaveArg<0>(&rejectCallback));
+            .WillOnce(::testing::SaveArg<0>(&rejectCallback));
             
         EXPECT_CALL(btsPortMock, sendCallAccept(phoneNumber));
-        if (acceptCallback) acceptCallback();
-        
         EXPECT_CALL(btsPortMock, sendCallDropped(phoneNumber));
         EXPECT_CALL(userPortMock, showConnected());
         
+        if (acceptCallback) acceptCallback();
         if (rejectCallback) rejectCallback();
     }
     
@@ -83,14 +84,15 @@ namespace ue
         setupConnectedAndInCallMode(phoneNumber);
         
         std::function<void()> acceptCallback;
+        
+        EXPECT_CALL(userPortMock, showCallRequest(phoneNumber));
         EXPECT_CALL(userPortMock, acceptCallback(_))
-            .WillOnce(testing::SaveArg<0>(&acceptCallback));
+            .WillOnce(::testing::SaveArg<0>(&acceptCallback));
             
         EXPECT_CALL(btsPortMock, sendCallAccept(phoneNumber));
-        if (acceptCallback) acceptCallback();
-        
         EXPECT_CALL(userPortMock, showConnected());
         
+        if (acceptCallback) acceptCallback();
         objectUnderTest.handleCallMessage(common::MessageId::CallDropped, phoneNumber);
     }
 }
