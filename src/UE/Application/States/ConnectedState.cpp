@@ -17,6 +17,8 @@ ConnectedState::ConnectedState(Context &context)
 {
     context.user.doubleClickCallback([this] { changeScreen();});
     context.user.showConnected();
+    context.user.rejectCallback([this] {
+    });
 }
 
     void ConnectedState::changeScreen() {
