@@ -22,8 +22,8 @@ namespace ue {
             logger.logInfo("[TalkingState] Sending call dropped to peer: ", to_string(context.peerPhoneNumber));
             context.bts.sendCallDropped(context.peerPhoneNumber);
             context.user.showConnected();
-            context.setState<ConnectedState>();
             iCallMode.clearIncomingText();
+            context.setState<ConnectedState>();
         });
 
         context.user.setCloseGuard([this]() -> bool {
