@@ -18,6 +18,7 @@ public:
     virtual void handleDisconnect() = 0;
     virtual void handleCallMessage(common::MessageId msgId, common::PhoneNumber from) = 0;
     virtual void handleCallReceive(common::MessageId msgId, common::PhoneNumber from) = 0;
+    virtual void handleCallTalk(common::PhoneNumber from, const std::string& text) = 0;
     virtual void handleSmsReceived(common::PhoneNumber from, const std::string& text) = 0;
 };
 
@@ -31,6 +32,7 @@ public:
     virtual void sendCallRequest(common::PhoneNumber) = 0;
     virtual void sendCallAccept(common::PhoneNumber) = 0;
     virtual void sendCallDropped(common::PhoneNumber to) = 0;
+    virtual void sendCallTalk(common::PhoneNumber to, const std::string& text) = 0;
 };
 
 }
