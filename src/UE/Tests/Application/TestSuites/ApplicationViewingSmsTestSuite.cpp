@@ -13,7 +13,7 @@ using ::testing::SaveArg;
 namespace ue
 {
 // ──────────────────────────────────────────────────────────────────────────────
-// 1. Brak SMS-ów  →  widok pustej listy
+// 1. Brak SMS-ów  ->  widok pustej listy
 // ──────────────────────────────────────────────────────────────────────────────
 TEST_F(ApplicationViewingSmsTestSuite, shallShowEmptySmsListWhenNoMessages)
 {
@@ -35,7 +35,7 @@ TEST_F(ApplicationViewingSmsTestSuite, shallShowEmptySmsListWhenNoMessages)
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 2. Jeden SMS w bazie  →  widok listy
+// 2. Jeden SMS w bazie  ->  widok listy
 // ──────────────────────────────────────────────────────────────────────────────
 TEST_F(ApplicationViewingSmsTestSuite, shallShowSmsListWhenMessagesExist)
 {
@@ -55,7 +55,7 @@ TEST_F(ApplicationViewingSmsTestSuite, shallShowSmsListWhenMessagesExist)
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 3. Wybór SMS-a  →  widok pojedynczej wiadomości  +  oznaczenie przeczytania
+// 3. Wybór SMS-a  ->  widok pojedynczej wiadomości  +  oznaczenie przeczytania
 // ──────────────────────────────────────────────────────────────────────────────
 TEST_F(ApplicationViewingSmsTestSuite, shallShowSelectedSmsAndMarkRead)
 {
@@ -90,7 +90,7 @@ TEST_F(ApplicationViewingSmsTestSuite, shallShowSelectedSmsAndMarkRead)
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 4. Zamknięcie widoku SMS  →  powrót do listy
+// 4. Zamknięcie widoku SMS  ->  powrót do listy
 // ──────────────────────────────────────────────────────────────────────────────
 TEST_F(ApplicationViewingSmsTestSuite, shallReturnToListAfterClosingSmsView)
 {
@@ -118,17 +118,17 @@ TEST_F(ApplicationViewingSmsTestSuite, shallReturnToListAfterClosingSmsView)
         .WillOnce(SaveArg<0>(&closeViewCb))
         .WillRepeatedly(DoDefault());
 
-    selectCb(0);                       // otwieramy SMS
+    selectCb(0);
     ASSERT_TRUE(closeViewCb);
 
     EXPECT_CALL(userPortMock, showSmsListView(_));
-    closeViewCb();                     // zamykamy SMS
+    closeViewCb();
     ASSERT_NE(nullptr,
               dynamic_cast<ViewSmsListState*>(context().getState()));
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
-// 5. Zamknięcie listy  →  powrót do Connected
+// 5. Zamknięcie listy  ->  powrót do Connected
 // ──────────────────────────────────────────────────────────────────────────────
 TEST_F(ApplicationViewingSmsTestSuite, shallReturnToConnectedAfterClosingList)
 {
