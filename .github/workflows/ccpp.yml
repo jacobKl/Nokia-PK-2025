@@ -14,7 +14,7 @@ jobs:
       run:
         shell: bash
         working-directory: src
-        
+
     steps:
     - uses: actions/checkout@v3
     - name: Install Qt
@@ -33,15 +33,11 @@ jobs:
         cmake -S ./ -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
 
     - name: Run Clang-Tidy
-      run: clang-tidy -p build $(find . \( -name '*.cpp' -o -name '*.h' \) \
-           ! -path "*_autogen*" \
-           ! -path "*googletest*" \
-           ! -path "*googlemock*" \
-           ! -path "*moc_*")
+      run: clang-tidy -p build $(find . \( -name '*.cpp' -o -name '*.h' \) ! -path "*_autogen*" ! -path "*googletest*" ! -path "*googlemock*" ! -path "*moc_*")
       continue-on-error: true
 
     - name: UT for BtsApplication
-      run: make BtsApplicationUT 
+      run: make BtsApplicationUT
 
     - name: run BTS ut
       run: ./BTS/Tests/Application/BtsApplicationUT
