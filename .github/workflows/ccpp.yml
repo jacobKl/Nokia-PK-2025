@@ -37,7 +37,7 @@ jobs:
            grep -v "_autogen" | \
            grep -v "googletest" | \
            grep -v "googlemock" | \
-           grep -v "moc_" | \
+           grep -v "moc_")
       continue-on-error: true
 
     - name: UT for BtsApplication
